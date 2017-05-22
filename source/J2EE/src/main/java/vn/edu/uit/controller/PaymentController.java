@@ -56,7 +56,7 @@ public class PaymentController {
         return new ModelAndView("redirect:getAllPayments");
     }
     
-    @RequestMapping(value = {"getAllPayments", "/"})
+    @RequestMapping(value = {"getAllPayments"})
     public ModelAndView getAllPayments() {
         logger.info("Getting the all Employees.");
         List<Payment> paymentList = paymentService.getAllPayments();
