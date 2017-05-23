@@ -290,10 +290,10 @@ INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (19
 
 /** bang thue phong **/
 
-CREATE TABLE THUEPHONG(
+create TABLE THUEPHONG(
 	ID int unsigned auto_increment primary key NOT NULL,
 	ID_Phong nvarchar(200) NOT NULL,
-	TGStart int NOT NULL,
-	TGEnd int NOT NULL
+	TGStart datetime NULL,
+	TGEnd datetime NULL
     );
 

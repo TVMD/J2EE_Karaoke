@@ -19,7 +19,7 @@
         <div class="x_content">
             <br />
             <div class="form-horizontal form-label-left">
-
+				<input type="hidden" value= "${phong.ID }" id="idphong"/>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Tên phòng</label>
                     <div class="col-md-9 col-sm-9 col-xs-9">
@@ -32,12 +32,7 @@
                         <input id="tenkh" type="text" class="form-control" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-3">TG bắt đầu</label>
-                    <div class="col-sm-9 col-xs-9 col-md-9 ">
-                        <input id='tgstart' type="text" />
-                    </div>
-                </div>
+                <div class="form-group" id='divtgbatdau' ></div>      
             </div>
         </div>
     </div>
@@ -77,6 +72,7 @@
         </div>
     </div>
 </div>
+<div id='xxx'></div>
 </body>
 <script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
@@ -84,5 +80,12 @@
 <script src="<c:url value="/resources/js/supersaiyan.js" />"></script> 
 <script type="text/javascript">
 	ctphong_ready();
+	$.ajax({
+		url:'/uit/hoadondv?idphong=15',
+		method:'get',
+		success:function(data){
+			$('#xxx').html(data);
+		}
+	});
 </script>
 </html>

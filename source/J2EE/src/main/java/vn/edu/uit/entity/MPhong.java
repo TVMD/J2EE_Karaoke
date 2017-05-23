@@ -23,19 +23,19 @@ public class MPhong implements Serializable {
 	private String Ten;
 	
 	@Column
-	private long StatusID;
+	private Long StatusID;
 	
 	@Column
-	private long GiaNgay;
+	private Long GiaNgay;
 	
 	@Column
-	private long GiaDem;
+	private Long GiaDem;
 	
 	public MPhong() {
 		super();
 	}
 
-	public MPhong(long iD, String ten, long statusID, long giaNgay, long giaDem) {
+	public MPhong(long iD, String ten, Long statusID, Long giaNgay, Long giaDem) {
 		super();
 		ID = iD;
 		Ten = ten;
@@ -70,7 +70,7 @@ public class MPhong implements Serializable {
 		return StatusID;
 	}
 
-	public void setStatusID(long statusID) {
+	public void setStatusID(Long statusID) {
 		StatusID = statusID;
 	}
 
@@ -78,7 +78,7 @@ public class MPhong implements Serializable {
 		return GiaNgay;
 	}
 
-	public void setGiaNgay(long giaNgay) {
+	public void setGiaNgay(Long giaNgay) {
 		GiaNgay = giaNgay;
 	}
 
@@ -86,7 +86,7 @@ public class MPhong implements Serializable {
 		return GiaDem;
 	}
 
-	public void setGiaDem(long giaDem) {
+	public void setGiaDem(Long giaDem) {
 		GiaDem = giaDem;
 	}
 

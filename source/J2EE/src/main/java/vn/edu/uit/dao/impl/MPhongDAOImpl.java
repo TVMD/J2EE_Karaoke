@@ -1,10 +1,12 @@
 package vn.edu.uit.dao.impl;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import java.util.ArrayList;
 
 import vn.edu.uit.dao.MPhongDAO;
 import vn.edu.uit.entity.MPhong;
@@ -37,6 +39,7 @@ public class MPhongDAOImpl implements MPhongDAO {
 		phong.setID(id);
 		hibernateUtil.delete(phong);
 	}
+
 
 	@Override
 	public List<MPhong> getAllPhong() {

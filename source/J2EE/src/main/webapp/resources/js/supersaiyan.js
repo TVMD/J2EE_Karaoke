@@ -13,6 +13,15 @@ function ctphong_ready() {
     	window.location='/uit/getAllPhong'
     });
     
+    var idphong = $('#idphong').val();
+	$.ajax({
+		method:'get',
+		url:'/uit/thuephong?idphong='+ idphong,
+		success:function(data){
+			$('#divtgbatdau').html(data);
+			$('#tgstart').val(moment($('#tgstart').val()).format("DD-MM-YYYY HH:mm:ss"));
+		}
+	});
 };
 
 var interval = null; // functionhandle of time counting

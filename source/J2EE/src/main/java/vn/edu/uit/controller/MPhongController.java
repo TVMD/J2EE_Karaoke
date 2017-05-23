@@ -69,4 +69,5 @@ public class MPhongController {
         MPhong phong = phongService.getPhong(id);
         return new ModelAndView("CT_Phong", "phong", phong);
     }  
+    
 }
