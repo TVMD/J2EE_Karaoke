@@ -4,12 +4,12 @@ CREATE DATABASE qlkara;
 use qlkara;
 
 CREATE TABLE CT_HOADONDV(
+	ID int not  null  auto_increment primary key,
 	ID_HoaDonDV int NOT NULL,
 	ID_Hang int NOT NULL,
 	SoLuong int NOT NULL,
 	DonGia int NOT NULL,
-	ThanhTien int NOT NULL,
-    CONSTRAINT PK_ctHD PRIMARY KEY (ID_HoaDonDV,ID_Hang)
+	ThanhTien int NOT NULL
  );
 
 INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (67, 13, 4, 10000, 40000);
@@ -143,15 +143,15 @@ CREATE TABLE PHONG(
 	GiaDem int NULL
     );
 
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (1, N'C1        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (4, N'C2        ', 1,100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (5, N'C3        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (6, N'C4        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (7, N'C5        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (8, N'C6        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (9, N'C7        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (10, N'C8        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (11, N'C9        ', 1, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (1, N'C1        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (4, N'C2        ', 0,100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (5, N'C3        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (6, N'C4        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (7, N'C5        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (8, N'C6        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (9, N'C7        ', 0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (10, N'C8        ',0, 100000, 200000);
+INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (11, N'C9        ', 0, 100000, 200000);
 INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (12, N'C10       ', 1, 100000, 200000);
 INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (13, N'P1        ', 1, 100000, 200000);
 INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (14, N'P2        ', 1, 100000, 200000);
@@ -250,14 +250,14 @@ CREATE TABLE HOADONDV(
 
 
 INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (67, 1, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (68, 5, CAST('2017/3/3' AS DateTime), 2413569224444443, N'                                                  ', 477000, 408000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (69, 14, CAST('2017/3/3' AS DateTime), 3372397640833331, N'                                                  ', 1001000, 911000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (70, 8, CAST('2017/3/3' AS DateTime), 2222209572222223, N'                                                  ', 697000, 607000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (71, 1, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (72, 1, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (73, 1, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (74, 1, CAST('2017/3/3' AS DateTime), 0027887588055555555, N'                                                  ', 21000, 1000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (75, 1, CAST('2017/3/3' AS DateTime), 013773580444444444, N'                                                  ', 78000, 3000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (68, 2, CAST('2017/3/3' AS DateTime), 2413569224444443, N'                                                  ', 477000, 408000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (69, 4, CAST('2017/3/3' AS DateTime), 3372397640833331, N'                                                  ', 1001000, 911000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (70, 5, CAST('2017/3/3' AS DateTime), 2222209572222223, N'                                                  ', 697000, 607000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (71, 6, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (72, 7, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (73, 8, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (74, 9, CAST('2017/3/3' AS DateTime), 0027887588055555555, N'                                                  ', 21000, 1000);
+INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (75, 10, CAST('2017/3/3' AS DateTime), 013773580444444444, N'                                                  ', 78000, 3000);
 
 /****** Object:  Table HANG    Script Date: 01/06/2017 00:10:33 ******/
 
@@ -297,3 +297,20 @@ create TABLE THUEPHONG(
 	TGEnd datetime NULL
     );
 
+#minh's procedure
+delimiter $$
+create procedure getHoaDonDV(in idphong int)
+begin
+	select a.ID,a.ID_ThuePhong,a.NgayGioLap,a.SoGio,a.TenKH from
+    hoadondv a join thuephong b on a.ID_ThuePhong =b.ID
+    join phong c on b.ID_Phong = c.ID
+    where c.StatusID=1 and c.ID=idphong;
+end;
+
+delimiter $$
+create procedure getListCT_HoaDonDV(in idhoadondv int)
+begin
+	select a.ID,a.ID_HoaDonDV,a.ID_Hang,a.SoLuong,a.DonGia,a.ThanhTien,b.Ten from
+    ct_hoadondv a join hang b on a.ID_Hang =b.ID
+    where a.ID_HoaDonDV=idhoadondv;
+end;

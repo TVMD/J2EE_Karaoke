@@ -9,7 +9,7 @@
  <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 </head>
 <body>
-<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12 well">
     <div class="x_panel">
         <div class="x_title">
             <h2>Thông tin phòng</h2>
@@ -20,25 +20,25 @@
             <br />
             <div class="form-horizontal form-label-left">
 				<input type="hidden" value= "${phong.ID }" id="idphong"/>
-                <div class="form-group">
+                <div class="form-group col-sm-4 col-md-4 ">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Tên phòng</label>
                     <div class="col-md-9 col-sm-9 col-xs-9">
-                        <h3>${phong.ten }</h3> 
+                         <input type="text" class="form-control" disabled value="${phong.ten }" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-sm-4 col-md-4">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Khách hàng</label>
                     <div class="col-md-9 col-sm-9 col-xs-9">
                         <input id="tenkh" type="text" class="form-control" />
                     </div>
                 </div>
-                <div class="form-group" id='divtgbatdau' ></div>      
+                <div class="form-group col-sm-4 col-md-4" id='divtgbatdau' ></div>   
             </div>
         </div>
     </div>
 </div>
 
-<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12 well" >
     <div class="x_panel">
         <div class="x_title">
             <h2>Thức uống - Thức ăn</h2>
@@ -46,13 +46,27 @@
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
+        <div class="form-horizontal form-label-left">
             <br />
-            <div class="form-horizontal form-label-left">
-                              
-			left        
+            <div id='cbbhang' class="col-sm-5 col-md-5"></div>
+            
+            <div class="form-group col-sm-4 col-md-4">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Số lượng</label>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <input id="sl" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+                    </div>
+                </div>       
+            
+            <div class="form-group col-sm-3 col-md-3">
+                  <a style="width:80px;height:30px;" href="google.com" class="btn btn-success btn-sm">
+      				<span class="glyphicon glyphicon-ok"></span>
+   		  		  </a>      
             </div>
+            <br/><br/>
+            <div id="ct_hoadondv" class="well">hihi</div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="col-md-12">
@@ -72,7 +86,7 @@
         </div>
     </div>
 </div>
-<div id='xxx'></div>
+<div id='xhide'></div>
 </body>
 <script src="<c:url value="/resources/js/jquery-3.2.1.min.js" />"></script> 
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
@@ -80,12 +94,5 @@
 <script src="<c:url value="/resources/js/supersaiyan.js" />"></script> 
 <script type="text/javascript">
 	ctphong_ready();
-	$.ajax({
-		url:'/uit/hoadondv?idphong=15',
-		method:'get',
-		success:function(data){
-			$('#xxx').html(data);
-		}
-	});
 </script>
 </html>

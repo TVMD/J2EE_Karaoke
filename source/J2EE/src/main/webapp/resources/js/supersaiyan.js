@@ -22,6 +22,32 @@ function ctphong_ready() {
 			$('#tgstart').val(moment($('#tgstart').val()).format("DD-MM-YYYY HH:mm:ss"));
 		}
 	});
+	
+	$.ajax({
+		url:'/uit/hoadondv?idphong='+idphong,
+		method:'get',
+		success:function(data){
+			$('#xhide').html(data);
+			
+			$.ajax({
+				url:'/uit/dsct_hoadondv?idhoadondv='+ $("#idhoadondv").val(),
+				method:'get',
+				success:function(data){
+					$('#ct_hoadondv').html(data);
+				}
+			});
+		}
+	});
+	
+	$.ajax({
+		url:'/uit/dshang',
+		method:'get',
+		success:function(data){
+			$('#cbbhang').html(data);
+		}
+	});
+	
+	
 };
 
 var interval = null; // functionhandle of time counting
