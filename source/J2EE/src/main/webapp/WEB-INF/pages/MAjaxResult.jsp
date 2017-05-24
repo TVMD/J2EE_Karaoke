@@ -8,7 +8,7 @@
 
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">TG bắt đầu</label>
                     <div class="col-sm-9 col-xs-9 col-md-9 ">
-                        <input id='tgstart' type="text" class="form-control" disabled value="${thuephong.TGStart}" />
+                        <input id='tgbatdau' type="text" class="form-control" disabled value="${thuephong.TGStart}" />
                     </div>
 
 	 </c:if>
@@ -52,13 +52,13 @@
                             <th><c:out value="${item.donGia}"/></th>
                             <th><c:out value="${item.thanhTien}"/></th> 
                             <th>
-                            	 <a style="width:80px;height:30px;" href="google.com" class="btn btn-success btn-sm">
-      								<span class="glyphicon glyphicon-edit"></span>
+                            	 <a  href="google.com" class="btn btn-success btn-sm">
+      								<span class="glyphicon glyphicon-pencil"></span>
    		  		  				</a> 
                             </th>
                            <th>
-                            	 <a style="width:80px;height:30px;" href="google.com" class="btn btn-success btn-sm">
-      								<span class="glyphicon glyphicon-delete"></span>
+                            	 <a  href="google.com" class="btn btn-warning btn-sm">
+      								<span class="glyphicon glyphicon-remove"></span>
    		  		  				</a> 
                             </th>                         
                         </tr>

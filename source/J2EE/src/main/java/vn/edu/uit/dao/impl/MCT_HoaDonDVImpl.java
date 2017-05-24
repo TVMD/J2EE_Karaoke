@@ -25,6 +25,15 @@ public class MCT_HoaDonDVImpl implements MCT_HoaDonDVDAO {
 	}
 
 	@Override
+	public long createCT_HoaDonDV(long idhoadon, long idhang, long sl) {
+		// TODO Auto-generated method stub
+		String query="call addct_hoadondv("+idhoadon+","+idhang+","+sl+");";
+		List<Object[]> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
+		
+		return Long.parseLong(x.get(0)[0].toString());
+	}
+
+	@Override
 	public MCT_HoaDonDV updateCT_HoaDonDV (MCT_HoaDonDV model) {
 		// TODO Auto-generated method stub
 		return hibernateUtil.update(model);

@@ -20,25 +20,32 @@
             <br />
             <div class="form-horizontal form-label-left">
 				<input type="hidden" value= "${phong.ID }" id="idphong"/>
-                <div class="form-group col-sm-4 col-md-4 ">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Tên phòng</label>
-                    <div class="col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group col-sm-3 col-md-3 ">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Tên phòng</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
                          <input type="text" class="form-control" disabled value="${phong.ten }" />
                     </div>
                 </div>
-                <div class="form-group col-sm-4 col-md-4">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Khách hàng</label>
-                    <div class="col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Khách hàng</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
                         <input id="tenkh" type="text" class="form-control" />
                     </div>
                 </div>
-                <div class="form-group col-sm-4 col-md-4" id='divtgbatdau' ></div>   
+                <div class="form-group col-sm-3 col-md-3" id='divtgbatdau' ></div>   
+                
+                <div class="form-group col-sm-3 col-md-3" id='divsogio'>
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Thời gian</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input id="sogio" type="text" disabled class="form-control" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 well" >
+<div class="col-md-12 col-sm-12 col-xs-12 well">
     <div class="x_panel">
         <div class="x_title">
             <h2>Thức uống - Thức ăn</h2>
@@ -50,19 +57,28 @@
             <br />
             <div id='cbbhang' class="col-sm-5 col-md-5"></div>
             
-            <div class="form-group col-sm-4 col-md-4">
+            <div class="form-group col-sm-4 col-md-4 row">
                     <label class="control-label col-md-3 col-sm-3 col-xs-3">Số lượng</label>
-                    <div class="col-md-9 col-sm-9 col-xs-9">
-                        <input id="sl" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
-                    </div>
-                </div>       
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                		<input id="sl" type="text" class="form-control nopadding col-sm-1 col-md-1"
+                		 onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        			</div>
+        			<div class="col-md-1">
+                    	<a id='1' class="btn btn-warning btn-sm">
+      							<span class="glyphicon glyphicon-chevron-up"></span>
+   		  		  		</a> 
+   		  		  		<a id='-1' class="btn btn-warning btn-sm">
+      							<span class="glyphicon glyphicon-chevron-down"></span>
+   		  		  		</a>
+               		</div>
+             </div>
             
             <div class="form-group col-sm-3 col-md-3">
-                  <a style="width:80px;height:30px;" href="google.com" class="btn btn-success btn-sm">
+                  <a onclick="btnaddcthoadon();" style="width:80px;height:30px;" class="btn btn-success btn-sm">
       				<span class="glyphicon glyphicon-ok"></span>
    		  		  </a>      
             </div>
-            <br/><br/>
+            <br/><br/><br/><br/>
             <div id="ct_hoadondv" class="well">hihi</div>
         </div>
     </div>

@@ -24,6 +24,14 @@ public class MHoaDonDVDAOImpl implements MHoaDonDVDAO {
 	}
 
 	@Override
+	public long createHoaDon(long idphong, String tgbatdau) {
+		String query="CALL createHoaDonDV("+idphong+", '"+tgbatdau+"');";
+		List<Object[]> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
+		
+		return Long.parseLong(x.get(0)[0].toString());
+	}
+	
+	@Override
 	public MHoaDonDV updateHoaDon (MHoaDonDV model) {
 		// TODO Auto-generated method stub
 		return hibernateUtil.update(model);
@@ -48,8 +56,6 @@ public class MHoaDonDVDAOImpl implements MHoaDonDVDAO {
 		// TODO lay tt thue phong cua phong co idphong
 		String query="CALL getHoaDonDV("+idphong+");";
 		
-		//List<MHoaDonDV> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
-		//return x.size()==0?null:x.get(0);
 		List<Object[]> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
 		MHoaDonDV re = new MHoaDonDV();
 		re.setID(x.get(0)[0].toString()==null?null:Integer.parseInt(x.get(0)[0].toString()));

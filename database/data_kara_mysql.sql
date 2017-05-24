@@ -306,11 +306,64 @@ begin
     join phong c on b.ID_Phong = c.ID
     where c.StatusID=1 and c.ID=idphong;
 end;
-
+#####3
 delimiter $$
 create procedure getListCT_HoaDonDV(in idhoadondv int)
 begin
 	select a.ID,a.ID_HoaDonDV,a.ID_Hang,a.SoLuong,a.DonGia,a.ThanhTien,b.Ten from
     ct_hoadondv a join hang b on a.ID_Hang =b.ID
-    where a.ID_HoaDonDV=idhoadondv;
+    where a.ID_HoaDonDV=idhoadondv
+	 and 1=(select StatusID from Phong where ID=(select ID_Phong from thuephong where ID= (select ID_ThuePhong from hoadondv where idhoadondv=ID)));
 end;
+
+######
+USE `qlkara`;
+DROP procedure IF EXISTS `createHoaDonDV`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE PROCEDURE createHoaDonDV (in idphong int, in startdate datetime)
+BEGIN
+	insert into thuephong(ID_Phong,TGStart,TGEnd) values (idphong,startdate,null);
+    
+    insert into hoadondv(ID_ThuePhong,NgayGioLap,SoGio,TenKH,TongTien,TienPhong) 
+		values ((select ID from thuephong where ID_Phong=idphong and TGStart=startdate)
+				,startdate,0,"",0,0);
+	
+    update phong 
+    set StatusID = 1
+    where idphong = ID;
+    
+    select * from hoadondv group by ID desc limit 1 offset 0; 
+END$$
+
+#############
+USE `qlkara`;
+DROP procedure IF EXISTS `addct_hoadondv`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE PROCEDURE addct_hoadondv(in idhoadon int,in idhang int,in sl int)
+BEGIN
+	if((select SLTon from hang where idhang=ID)>sl) then
+		if((select count(ID) from ct_hoadondv where ID_Hang=idhang and idhoadon=ID_HoaDonDV)=1)
+        then 
+			update ct_hoadondv set SoLuong = SoLuong + sl
+            where  ID_Hang=idhang and idhoadon=ID_HoaDonDV;
+		else
+			insert into ct_hoadondv(ID_HoaDonDV,ID_Hang,SoLuong,DonGia,ThanhTien) 
+			values (idhoadon,idhang,sl,(select DonGiaBan from hang where ID=idhang),0);
+		end if;
+		
+		update ct_hoadondv a
+		set ThanhTien = SoLuong * DonGia
+		where a.ID_HoaDonDV = idhoadon and a.ID_Hang=idhang;
+		
+		update hang 
+		set SLTon = SLTon - sl
+		where idhang=ID;
+		
+		select * from ct_hoadondv group by ID desc limit 1 offset 0; 
+    else select 0;
+    end if;
+END$$
+
+###########

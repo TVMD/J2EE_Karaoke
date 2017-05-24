@@ -24,6 +24,13 @@ public class MHoaDonDVServiceImpl implements MHoaDonDVService {
 		// TODO Auto-generated method stub
 		return dao.createHoaDon(model);
 	}
+	
+	
+	@Override
+	public long createHoaDon(long idphong, String tgbatdau) {
+		// TODO Auto-generated method stub
+		return dao.createHoaDon(idphong, tgbatdau);
+	}
 
 	@Override
 	public MHoaDonDV updateHoaDon(MHoaDonDV model) {
