@@ -36,6 +36,7 @@
 	 	 <table class="table table-hover table-bordered">
                     <thead style="background-color: #bce8f1;">
                     <tr>
+                    	<th style="display:none;"/>
                         <th>Tên món</th>
                         <th>Số lượng</th>
                         <th>Đơn giá</th>
@@ -47,17 +48,23 @@
                     <tbody>
                     <c:forEach items="${dscthoadondv}" var="item">
                         <tr>
+                        	<th style="display:none;"><c:out value="${item.ID_Hang}"/></th>
                             <th><c:out value="${item.tenHang}"/></th>
-                            <th><c:out value="${item.soLuong}"/></th>
+                            <th>
+                            	<input onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="soluong_ct" value= <c:out value="${item.soLuong}"/> disabled="true"/>
+                            	 <a class="btn btn-success btn-sm hidden">
+      								<span class="glyphicon glyphicon-ok"></span>
+   		  		  				</a> 
+                            </th>
                             <th><c:out value="${item.donGia}"/></th>
                             <th><c:out value="${item.thanhTien}"/></th> 
-                            <th>
-                            	 <a  href="google.com" class="btn btn-success btn-sm">
+                            <th id="editrow">
+                            	 <a onclick="btneditcthoadon(this);" class="btn btn-success btn-sm">
       								<span class="glyphicon glyphicon-pencil"></span>
    		  		  				</a> 
                             </th>
-                           <th>
-                            	 <a  href="google.com" class="btn btn-warning btn-sm">
+                           <th id="deleterow">
+                            	 <a onclick="btndelcthoadon(this);"  class="btn btn-warning btn-sm">
       								<span class="glyphicon glyphicon-remove"></span>
    		  		  				</a> 
                             </th>                         

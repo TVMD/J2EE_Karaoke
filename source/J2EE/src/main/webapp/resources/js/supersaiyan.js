@@ -40,12 +40,17 @@ function ctphong_ready() {
     	window.location='/uit/getAllPhong'
     });
     if($("#divtgbatdau").html().indexOf("input")<0){
-    	//$("#divsogio").hide();
+    	$("#divsogio").hide();
     }
     else{
     	settinterval();
     }
-   
+    
+    $("#btntinhtien").on("click",function(){
+    	location.href='/uit/tinhtien?hoadon='+$("#idhoadondv").val();
+    })
+    
+    
 	ajaxphong();
 	
 	$.ajax({
@@ -142,4 +147,78 @@ function btnaddcthoadon(){
 			   alert("Có vẻ bạn đã hết loại hàng này!");
 		   }
 		 });
+}
+
+function btndelcthoadon(caller){
+	var midhang =$(caller).parent().siblings().eq(0).html();
+	var midhoadon = $('#idhoadondv').val();
+	
+	if(midhang===undefined || midhoadon===undefined){
+		alert('getout!');
+		return;
+	}
+	
+	var x = {
+			   idhoadon:midhoadon
+			   ,idhang:midhang
+	   }
+			
+   $.ajax({
+		   url: '/uit/deletect_hoadondv',
+		   data: x,
+		   type: 'POST',
+		   success: function(x){
+			   ajaxct_hoadondv()
+		   },
+		   error: alert("Something is just not right.")
+		 });
+}
+function btneditcthoadon(caller){
+	var x = $(caller).parent().siblings().eq(2);
+	
+	var midhang =$(caller).parent().siblings().eq(0).html();
+	var midhoadon = $('#idhoadondv').val();
+	
+	if(midhang===undefined || midhoadon===undefined){
+		alert('getout!');
+		return;
+	}
+	
+	x.children('input').attr("disabled",false)
+		.on("keydown",function(event){
+			
+			if(event.which==13){
+				var x = {
+						 idhoadon:midhoadon
+						   ,idhang:midhang
+						   ,soluong:$(this).val()
+				}
+				$.ajax({
+					   url: '/uit/updatect_hoadondv',
+					   data: x,
+					   type: 'POST',
+					   success: function(x){
+						   ajaxct_hoadondv()
+					   }
+					 });
+			}
+		});
+	x.children('a').removeClass('hidden')
+		.on("click",function(){
+			
+			var x = {
+					 idhoadon:midhoadon
+					   ,idhang:midhang
+					   ,soluong:$(this).siblings('input').val()
+			}
+			 $.ajax({
+				   url: '/uit/updatect_hoadondv',
+				   data: x,
+				   type: 'POST',
+				   success: function(x){
+					   ajaxct_hoadondv()
+				   }
+				 });
+			 
+		});
 }

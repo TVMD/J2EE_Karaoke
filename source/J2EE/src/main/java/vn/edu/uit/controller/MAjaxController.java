@@ -91,4 +91,21 @@ public class MAjaxController {
     	Long x= cthoadonService.createCT_HoaDonDV(Long.parseLong(idhoadon), Long.parseLong(idhang),Long.parseLong(soluong));
         return x.toString();
     }
+    
+    @RequestMapping(value = "deletect_hoadondv", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    String delct_hoadondv(@RequestParam("idhoadon") String idhoadon,@RequestParam("idhang") String idhang) {
+    	logger.info("adding ct_hoadon dv , update sl ton, tinh thanhtien");
+    	cthoadonService.deleteCT_HoaDonDV(Long.parseLong(idhoadon), Long.parseLong(idhang));
+    	Long x=Long.parseLong("1");
+        return x.toString();
+    }
+    
+    @RequestMapping(value = "updatect_hoadondv", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    String delct_hoadondv(@RequestParam("idhoadon") String idhoadon,@RequestParam("idhang") String idhang,@RequestParam("soluong") String soluong) {
+    	logger.info("update ct_hoadon dv , update sl ton, tinh thanhtien");
+    	Long x= cthoadonService.updateCT_HoaDonDV(Long.parseLong(idhoadon), Long.parseLong(idhang),Long.parseLong(soluong));
+        return x.toString();
+    }
 }

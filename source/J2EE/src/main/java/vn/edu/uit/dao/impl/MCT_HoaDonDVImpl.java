@@ -40,6 +40,15 @@ public class MCT_HoaDonDVImpl implements MCT_HoaDonDVDAO {
 	}
 
 	@Override
+	public long updateCT_HoaDonDV(long idhoadon, long idhang, long soluong) {
+		// TODO Auto-generated method stub
+		String query="call updatect_hoadondv("+idhoadon+","+idhang+","+soluong+");";
+		List<Object> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
+		
+		return Long.parseLong(x.get(0).toString());
+	}
+
+	@Override
 	public void deleteCT_HoaDonDV(long id) {
 		// TODO Auto-generated method stub
 		MCT_HoaDonDV model = new MCT_HoaDonDV();
@@ -50,10 +59,9 @@ public class MCT_HoaDonDVImpl implements MCT_HoaDonDVDAO {
 	@Override
 	public void deleteCT_HoaDonDV(long idhoadon, long idhang) {
 		// TODO Auto-generated method stub
-		MCT_HoaDonDV model = new MCT_HoaDonDV();
-		model.setID_HoaDonDV(idhoadon);
-		model.setID_Hang(idhang);
-		hibernateUtil.delete(model);
+		String query="call deletect_hoadondv("+idhoadon+","+idhang+");";
+		List<Object[]> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
+		
 	}
 	
 	@Override

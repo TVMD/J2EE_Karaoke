@@ -42,6 +42,13 @@ public class MCT_HoaDonDVServiceImpl implements MCT_HoaDonDVService {
 	}
 
 	@Override
+	public long updateCT_HoaDonDV(long idhoadon, long idhang, long soluong) {
+		// TODO Auto-generated method stub
+		return dao.updateCT_HoaDonDV(idhoadon, idhang, soluong);
+	}
+
+
+	@Override
 	public void deleteCT_HoaDonDV(long id) {
 		// TODO Auto-generated method stub
 		dao.deleteCT_HoaDonDV(id);

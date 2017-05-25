@@ -8,6 +8,7 @@ public interface MCT_HoaDonDVService {
 	public long createCT_HoaDonDV(MCT_HoaDonDV model);
 	public long createCT_HoaDonDV(long idhoadon, long idhang, long sl);
     public MCT_HoaDonDV updateCT_HoaDonDV(MCT_HoaDonDV model);
+    public long updateCT_HoaDonDV( long idhoadon,long idhang, long soluong);
     public void deleteCT_HoaDonDV(long id);
     public void deleteCT_HoaDonDV(long idhoadon,long idhang);
     public MCT_HoaDonDV getCT_HoaDonDV(long id);   

@@ -367,3 +367,47 @@ BEGIN
 END$$
 
 ###########
+USE `qlkara`;
+DROP procedure IF EXISTS `deletect_hoadondv`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE PROCEDURE deletect_hoadondv(in idhoadon int,in idhang int)
+BEGIN
+	set @sl = (select SoLuong from ct_hoadondv where idhoadon=ID_HoaDonDV and idhang=ID_Hang);
+	if(@sl is not null) then
+    delete from ct_hoadondv
+    where idhoadon=ID_HoaDonDV and idhang=ID_Hang;
+    
+    update hang 
+    set SLTon = SLTon + @sl;
+	
+    select 0;
+	else select 1;
+	end if;
+END$$
+
+##########################
+USE `qlkara`;
+DROP procedure IF EXISTS `updatect_hoadondv`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE PROCEDURE updatect_hoadondv(in idhoadon int,in idhang int,in slmoi int)
+BEGIN
+	set @slcu = (select SoLuong from ct_hoadondv where idhoadon=ID_HoaDonDV and idhang=ID_Hang);
+	set @sltonmoi = (select SLTon from hang where ID=idhang) - slmoi + @slcu;
+    if(@slcu is not null and @sltonmoi >=0) then
+    
+		update ct_hoadondv
+        set SoLuong = slmoi,
+			ThanhTien = slmoi * DonGia
+        where ID_Hang=idhang and ID_HoaDonDV = idhoadon;
+        
+        update hang
+        set SLTon = @sltonmoi
+        where ID = idhang;
+        
+    select 1;
+	else select 0;
+	end if;
+END$$
+###########################
