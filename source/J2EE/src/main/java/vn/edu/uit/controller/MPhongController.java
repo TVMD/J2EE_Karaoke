@@ -28,7 +28,7 @@ public class MPhongController {
 	@RequestMapping("createPhong")
     public ModelAndView createPhong(@ModelAttribute MPhong phong) {
         logger.info("Creating MPhong. Data: "+phong);
-        return new ModelAndView("phongForm");
+        return new ModelAndView("EditPhong");
     }
     
     @RequestMapping("editPhong")

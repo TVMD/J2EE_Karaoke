@@ -1,347 +1,410 @@
-
-CREATE DATABASE qlkara;
-
-use qlkara;
-
-CREATE TABLE CT_HOADONDV(
-	ID int not  null  auto_increment primary key,
-	ID_HoaDonDV int NOT NULL,
-	ID_Hang int NOT NULL,
-	SoLuong int NOT NULL,
-	DonGia int NOT NULL,
-	ThanhTien int NOT NULL
- );
-
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (67, 13, 4, 10000, 40000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (68, 2, 2, 12000, 24000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (68, 12, 3, 15000, 45000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (69, 10, 3, 20000, 60000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (69, 14, 2, 15000, 30000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (70, 15, 6, 15000, 90000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (71, 13, 4, 10000, 40000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (72, 13, 4, 10000, 40000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (73, 13, 4, 10000, 40000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (74, 8, 2, 10000, 20000);
-INSERT CT_HOADONDV (ID_HoaDonDV, ID_Hang, SoLuong, DonGia, ThanhTien) VALUES (75, 16, 5, 15000, 75000);
-
-
-CREATE TABLE CT_HDNHAP(
-	IDHang int NOT NULL,
-	IDHoaDon int NOT NULL,
-	SoLuong int NOT NULL,
-	DonGiaNhap int NOT NULL,
-	ThanhTien int NOT NULL,
-	CONSTRAINT PK_CTHD PRIMARY KEY (IDHang,IDHoaDon)
- ) ;
-
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (1, 1, 2, 10000, 20000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (1, 2, 100, 10000, 1000000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (1, 3, 10, 10000, 100000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (1, 5, 100, 10000, 1000000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (1, 8, 50, 10000, 500000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (2, 2, 14, 5000, 70000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (2, 3, 1, 5000, 5000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (2, 5, 100, 5000, 500000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (7, 2, 4, 100000, 400000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (7, 3, 100, 10000, 1000000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (7, 5, 100, 3000, 300000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (7, 9, 14, 10000, 140000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (8, 2, 100, 2000, 200000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (8, 3, 3, 2000, 6000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (8, 5, 100, 4000, 400000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (8, 9, 13, 12000, 156000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (10, 2, 100, 10000, 1000000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (10, 3, 6, 10000, 60000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (10, 6, 50, 20000, 1000000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (11, 6, 50, 8000, 400000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (11, 13, 100, 12000, 1200000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (12, 6, 20, 15000, 300000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (12, 9, 17, 18000, 306000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (13, 11, 100, 5000, 500000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (14, 6, 50, 10000, 500000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (14, 8, 20, 15000, 300000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (15, 7, 30, 16000, 480000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (15, 9, 16, 13000, 208000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (15, 10, 14, 10000, 140000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (16, 7, 20, 12000, 240000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (16, 8, 10, 8000, 80000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (16, 12, 20, 12000, 240000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (17, 7, 20, 20000, 400000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (17, 9, 20, 18000, 360000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (18, 7, 30, 16000, 480000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (19, 8, 20, 3000, 60000);
-INSERT CT_HDNHAP (IDHang, IDHoaDon, SoLuong, DonGiaNhap, ThanhTien) VALUES (19, 10, 15, 8000, 120000);
-/****** Object:  Table CT_BCTONKHO    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE CT_BCTONKHO(
-	ID_BCTonKho int NOT NULL,
-	ID_Hang int NOT NULL,
-	TonDau int NOT NULL,
-	SuDung int NOT NULL,
-	TonCuoi int NOT NULL,
-	SoLuongNhap int NOT NULL,
- CONSTRAINT PK_CT_BCTONKHO PRIMARY KEY (ID_BCTonKho,ID_Hang)
- 
-) ;
-
-/* INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 1, 0, 0, 0, 150);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 2, 0, 2, 0, 14);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 7, 0, 0, 0, 18);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 8, 0, 2, 0, 113);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 10, 0, 3, 0, 150);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 11, 0, 0, 0, 50);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 12, 0, 3, 0, 37);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 13, 0, 16, 0);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 14, 0, 2, 0, 70);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 15, 0, 6, 0, 60);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 16, 0, 5, 0, 30);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 17, 0, 0, 0, 40);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 18, 0, 0, 0, 30);
-INSERT CT_BCTONKHO (ID_BCTonKho, ID_Hang, TonDau, SuDung, TonCuoi, SoLuongNhap) VALUES (5, 19, 0, 0, 0, 35); */
-/****** Object:  Table BCTONKHO    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE BCTONKHO(
-	ID int  NOT NULL auto_increment primary key,
-	Thang datetime NOT NULL
-);
-
-/****** Object:  Table BCDOANHTHU    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE BCDOANHTHU(
-	ID int NOT NULL auto_increment primary key,
-	NgayLap datetime NOT NULL,
-	DoanhThu int NOT NULL,
-	ChiPhi int NOT NULL,
-	Thang datetime NOT NULL
- );
-
-/****** Object:  Table THAMSO    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE THAMSO(
-	Name nvarchar(50) NOT NULL primary key,
-	Value nvarchar(500) NULL,
-	Deleted int NOT NULL default 0
- );
-
-INSERT THAMSO (Name, Value) VALUES (N'ChuKy', N'7');
-INSERT THAMSO (Name, Value) VALUES (N'GioiHanDatHang', N'3');
-INSERT THAMSO (Name, Value) VALUES (N'GioNgayDem', N'18:00:00');
-INSERT THAMSO (Name, Value) VALUES (N'TienPhat', N'100');
-INSERT THAMSO (Name, Value) VALUES (N'WarningNum', N'3');
-/****** Object:  Table PHONG    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE PHONG(
-	ID int unsigned NOT NULL auto_increment primary key,
-	Ten nchar(10) NULL,
-	StatusID int NULL,
- 	GiaNgay int NULL,
-	GiaDem int NULL
-    );
-
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (1, N'C1        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (4, N'C2        ', 0,100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (5, N'C3        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (6, N'C4        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (7, N'C5        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (8, N'C6        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (9, N'C7        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (10, N'C8        ',0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (11, N'C9        ', 0, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (12, N'C10       ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (13, N'P1        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (14, N'P2        ', 1, 100000, 200000);
-INSERT PHONG (ID, Ten, StatusID, GiaNgay, GiaDem) VALUES (15, N'x         ', 1, 100000, 200000);
-
-/****** Object:  Table PHIEUCHI    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE PHIEUCHI(
-	ID int unsigned auto_increment primary key NOT NULL,
-	NgayLap datetime NOT NULL,
-	NoiDung nvarchar(500) NOT NULL,
-	TongTien int NOT NULL,
-	GhiChu nvarchar(500) NULL
-    );
-
-
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (1, '2017/3/3', N'Tiền điện', 300000, N'none');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (2, '2017/3/3', N'Tiền nước ', 200000, N'none');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (3, '2017/3/3', N'Tiền sửa mic', 20000, N'none');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (4, '2017/3/3', N'Bể ly', 15000, N'jh');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (5, '2017/3/3', N'Ma', 1000000000, N'none');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (6, '2017/3/3', N'Sửa mái hiên', 100000, N'');
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (7, '2017/3/3', N'Mua cửa mới', 200000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (8, '2017/3/3', N'Thưởng tết', 500000000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (10, '2017/3/3', N'Lương nhân viên', 10000000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (11, '2017/3/3', N'Xây thêm phòng', 10000000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (12, '2017/3/3', N'Quảng cáo', 2000000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (13, '2017/3/3', N'Thưởng', 3000000, NULL);
-INSERT PHIEUCHI (ID, NgayLap, NoiDung, TongTien, GhiChu) VALUES (14, '2017/3/3', N'sdf', 100000, N'0');
-
-/****** Object:  Table NHOMQUYEN    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE NHOMQUYEN(
-	MaNhomQuyen int unsigned auto_increment primary key NOT NULL,
-	TenNhomQuyen nvarchar(50) NULL
-    );
-
-INSERT NHOMQUYEN (MaNhomQuyen, TenNhomQuyen) VALUES (1, N'admin');
-INSERT NHOMQUYEN (MaNhomQuyen, TenNhomQuyen) VALUES (2, N'user');
-
-/****** Object:  Table NGUOIDUNG    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE NGUOIDUNG(
-	ID int unsigned auto_increment primary key NOT NULL,
-	MaDangNhap nvarchar(50) NOT NULL,
-	MatKhau nvarchar(50) NOT NULL,
-	HoTen nvarchar(50) NULL,
-	Email nvarchar(50) NULL,
-	SoDT nvarchar(50) NULL,
-	MaNhomQuyen int NOT NULL
-    );
-
-
-INSERT NGUOIDUNG (ID, MaDangNhap, MatKhau, HoTen, Email, SoDT, MaNhomQuyen) VALUES (1, N'3tm', N'3tm', NULL, NULL, NULL, 1);
-INSERT NGUOIDUNG (ID, MaDangNhap, MatKhau, HoTen, Email, SoDT, MaNhomQuyen) VALUES (2, N'toan', N'3tm', N'', N'', N'', 2);
-INSERT NGUOIDUNG (ID, MaDangNhap, MatKhau, HoTen, Email, SoDT, MaNhomQuyen) VALUES (3, N'minh', N'3tm', N'minh', NULL, NULL, 2);
-INSERT NGUOIDUNG (ID, MaDangNhap, MatKhau, HoTen, Email, SoDT, MaNhomQuyen) VALUES (4, N'tien', N'3tm', NULL, NULL, NULL, 2);
-INSERT NGUOIDUNG (ID, MaDangNhap, MatKhau, HoTen, Email, SoDT, MaNhomQuyen) VALUES (5, N'thao', N'3tm', NULL, NULL, NULL, 2);
-
-
-CREATE TABLE HOADONNHAP(
-	ID int unsigned auto_increment primary key NOT NULL,
-	NgayNhap datetime NOT NULL,
-	TongTien int NOT NULL
-    );
-
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (1, CAST('2017/3/4' AS DateTime), 20000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (2, CAST('2017/3/3' AS DateTime), 0000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (3, CAST('2017/3/3' AS DateTime), 1171000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (4, CAST('2017/3/3' AS DateTime), 0000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (5, CAST('2017/3/3' AS DateTime), 2380000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (6, CAST('2017/3/3' AS DateTime), 2200000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (7, CAST('2017/3/3' AS DateTime), 1600000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (8, CAST('2017/3/3' AS DateTime), 940000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (9, CAST('2017/3/3' AS DateTime), 1170000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (10, CAST('2017/3/3' AS DateTime), 260000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (11, CAST('2017/3/3' AS DateTime), 500000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (12, CAST('2017/3/3' AS DateTime), 240000);
-INSERT HOADONNHAP (ID, NgayNhap, TongTien) VALUES (13, CAST('2017/3/3' AS DateTime), 1200000);
-
-/****** Object:  Table HOADONDV    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE HOADONDV(
-	ID int unsigned auto_increment primary key NOT NULL,
-	ID_ThuePhong int NOT NULL,
-	NgayGioLap datetime NOT NULL,
-	SoGio float NULL,
-	TenKH nchar(50) NULL,
-	TongTien int NOT NULL,
-	TienPhong int NULL
-    );
-
-
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (67, 1, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (68, 2, CAST('2017/3/3' AS DateTime), 2413569224444443, N'                                                  ', 477000, 408000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (69, 4, CAST('2017/3/3' AS DateTime), 3372397640833331, N'                                                  ', 1001000, 911000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (70, 5, CAST('2017/3/3' AS DateTime), 2222209572222223, N'                                                  ', 697000, 607000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (71, 6, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (72, 7, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (73, 8, CAST('2017/3/3' AS DateTime), 1486531835555555, N'                                                  ', 250000, 210000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (74, 9, CAST('2017/3/3' AS DateTime), 0027887588055555555, N'                                                  ', 21000, 1000);
-INSERT HOADONDV (ID, ID_ThuePhong, NgayGioLap, SoGio, TenKH, TongTien, TienPhong) VALUES (75, 10, CAST('2017/3/3' AS DateTime), 013773580444444444, N'                                                  ', 78000, 3000);
-
-/****** Object:  Table HANG    Script Date: 01/06/2017 00:10:33 ******/
-
-
-CREATE TABLE HANG(
-	ID int unsigned auto_increment primary key NOT NULL,
-	Ten nvarchar(200) NOT NULL,
-	DonGiaNhap int NOT NULL,
-	DonGiaBan int NOT NULL,
-	SLTon int NOT NULL,
-	DonVi nvarchar(50) NULL,
-	Requested int NOT NULL
-    );
-    
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (1, N'Bia', 10000, 12000, 100, N'lonf', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (2, N'Tra Dao', 9000, 12000, 0, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (7, N'Nước suối', 4000, 10000, 100, N'chai', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (8, N'Bánh Snack', 5000, 10000, 98, N'bịch', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (10, N'Trái cây', 10000, 20000, 97, N'đĩa', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (11, N'Pepsi', 5000, 13000, 100, N'chai', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (12, N'Nước cam', 8000, 15000, 97, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (13, N'Trà đá', 3000, 10000, 96, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (14, N'Sữa', 5000, 15000, 98, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (15, N'Sinh tố', 5000, 15000, 94, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (16, N'Bánh bông lan', 5000, 15000, 95, N'cái', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (17, N'Nước ép nho', 10000, 20000, 100, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (18, N'Nước ép cam', 10000, 20000, 100, N'ly', 0);
-INSERT HANG (ID, Ten, DonGiaNhap, DonGiaBan, SLTon, DonVi, Requested) VALUES (19, N'Mì gói', 5000, 15000, 1, N'tô', 0);
-
-
-/** bang thue phong **/
-
-create TABLE THUEPHONG(
-	ID int unsigned auto_increment primary key NOT NULL,
-	ID_Phong nvarchar(200) NOT NULL,
-	TGStart datetime NULL,
-	TGEnd datetime NULL
-    );
-
-#minh's procedure
-delimiter $$
-create procedure getHoaDonDV(in idphong int)
-begin
-	select a.ID,a.ID_ThuePhong,a.NgayGioLap,a.SoGio,a.TenKH from
-    hoadondv a join thuephong b on a.ID_ThuePhong =b.ID
-    join phong c on b.ID_Phong = c.ID
-    where c.StatusID=1 and c.ID=idphong;
-end;
-#####3
-delimiter $$
-create procedure getListCT_HoaDonDV(in idhoadondv int)
-begin
-	select a.ID,a.ID_HoaDonDV,a.ID_Hang,a.SoLuong,a.DonGia,a.ThanhTien,b.Ten from
-    ct_hoadondv a join hang b on a.ID_Hang =b.ID
-    where a.ID_HoaDonDV=idhoadondv
-	 and 1=(select StatusID from Phong where ID=(select ID_Phong from thuephong where ID= (select ID_ThuePhong from hoadondv where idhoadondv=ID)));
-end;
-
-######
+CREATE DATABASE  IF NOT EXISTS `qlkara` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `qlkara`;
-DROP procedure IF EXISTS `createHoaDonDV`;
-DELIMITER $$
-USE `qlkara`$$
-CREATE PROCEDURE createHoaDonDV (in idphong int, in startdate datetime)
-BEGIN
-	insert into thuephong(ID_Phong,TGStart,TGEnd) values (idphong,startdate,null);
-    
-    insert into hoadondv(ID_ThuePhong,NgayGioLap,SoGio,TenKH,TongTien,TienPhong) 
-		values ((select ID from thuephong where ID_Phong=idphong and TGStart=startdate)
-				,startdate,0,"",0,0);
-	
-    update phong 
-    set StatusID = 1
-    where idphong = ID;
-    
-    select * from hoadondv group by ID desc limit 1 offset 0; 
-END$$
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: qlkara
+-- ------------------------------------------------------
+-- Server version	5.7.18-log
 
-#############
-USE `qlkara`;
-DROP procedure IF EXISTS `addct_hoadondv`;
-DELIMITER $$
-USE `qlkara`$$
-CREATE PROCEDURE addct_hoadondv(in idhoadon int,in idhang int,in sl int)
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `bcdoanhthu`
+--
+
+DROP TABLE IF EXISTS `bcdoanhthu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bcdoanhthu` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NgayLap` datetime NOT NULL,
+  `DoanhThu` int(11) NOT NULL,
+  `ChiPhi` int(11) NOT NULL,
+  `Thang` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bcdoanhthu`
+--
+
+LOCK TABLES `bcdoanhthu` WRITE;
+/*!40000 ALTER TABLE `bcdoanhthu` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bcdoanhthu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bctonkho`
+--
+
+DROP TABLE IF EXISTS `bctonkho`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bctonkho` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Thang` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bctonkho`
+--
+
+LOCK TABLES `bctonkho` WRITE;
+/*!40000 ALTER TABLE `bctonkho` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bctonkho` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ct_bctonkho`
+--
+
+DROP TABLE IF EXISTS `ct_bctonkho`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ct_bctonkho` (
+  `ID_BCTonKho` int(11) NOT NULL,
+  `ID_Hang` int(11) NOT NULL,
+  `TonDau` int(11) NOT NULL,
+  `SuDung` int(11) NOT NULL,
+  `TonCuoi` int(11) NOT NULL,
+  `SoLuongNhap` int(11) NOT NULL,
+  PRIMARY KEY (`ID_BCTonKho`,`ID_Hang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ct_bctonkho`
+--
+
+LOCK TABLES `ct_bctonkho` WRITE;
+/*!40000 ALTER TABLE `ct_bctonkho` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ct_bctonkho` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ct_hdnhap`
+--
+
+DROP TABLE IF EXISTS `ct_hdnhap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ct_hdnhap` (
+  `IDHang` int(11) NOT NULL,
+  `IDHoaDon` int(11) NOT NULL,
+  `SoLuong` int(11) NOT NULL,
+  `DonGiaNhap` int(11) NOT NULL,
+  `ThanhTien` int(11) NOT NULL,
+  PRIMARY KEY (`IDHang`,`IDHoaDon`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ct_hdnhap`
+--
+
+LOCK TABLES `ct_hdnhap` WRITE;
+/*!40000 ALTER TABLE `ct_hdnhap` DISABLE KEYS */;
+INSERT INTO `ct_hdnhap` VALUES (1,1,2,10000,20000),(1,2,100,10000,1000000),(1,3,10,10000,100000),(1,5,100,10000,1000000),(1,8,50,10000,500000),(2,2,14,5000,70000),(2,3,1,5000,5000),(2,5,100,5000,500000),(7,2,4,100000,400000),(7,3,100,10000,1000000),(7,5,100,3000,300000),(7,9,14,10000,140000),(8,2,100,2000,200000),(8,3,3,2000,6000),(8,5,100,4000,400000),(8,9,13,12000,156000),(10,2,100,10000,1000000),(10,3,6,10000,60000),(10,6,50,20000,1000000),(11,6,50,8000,400000),(11,13,100,12000,1200000),(12,6,20,15000,300000),(12,9,17,18000,306000),(13,11,100,5000,500000),(14,6,50,10000,500000),(14,8,20,15000,300000),(15,7,30,16000,480000),(15,9,16,13000,208000),(15,10,14,10000,140000),(16,7,20,12000,240000),(16,8,10,8000,80000),(16,12,20,12000,240000),(17,7,20,20000,400000),(17,9,20,18000,360000),(18,7,30,16000,480000),(19,8,20,3000,60000),(19,10,15,8000,120000);
+/*!40000 ALTER TABLE `ct_hdnhap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ct_hoadondv`
+--
+
+DROP TABLE IF EXISTS `ct_hoadondv`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ct_hoadondv` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_HoaDonDV` int(11) NOT NULL,
+  `ID_Hang` int(11) NOT NULL,
+  `SoLuong` int(11) NOT NULL,
+  `DonGia` int(11) NOT NULL,
+  `ThanhTien` int(11) NOT NULL,
+  `TenHang` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ct_hoadondv`
+--
+
+LOCK TABLES `ct_hoadondv` WRITE;
+/*!40000 ALTER TABLE `ct_hoadondv` DISABLE KEYS */;
+INSERT INTO `ct_hoadondv` VALUES (2,68,2,2,12000,24000,NULL),(3,68,12,3,15000,45000,NULL),(4,69,10,3,20000,60000,NULL),(5,69,14,2,15000,30000,NULL),(6,70,15,6,15000,90000,NULL),(7,71,13,4,10000,40000,NULL),(8,72,13,4,10000,40000,NULL),(9,73,13,4,10000,40000,NULL),(10,74,8,2,10000,20000,NULL),(11,75,16,5,15000,75000,NULL),(12,85,1,1,12000,12000,NULL),(19,67,10,13,20000,260000,NULL),(21,86,16,1,15000,15000,NULL);
+/*!40000 ALTER TABLE `ct_hoadondv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hang`
+--
+
+DROP TABLE IF EXISTS `hang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hang` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Ten` varchar(200) NOT NULL,
+  `DonGiaNhap` int(11) NOT NULL,
+  `DonGiaBan` int(11) NOT NULL,
+  `SLTon` int(11) NOT NULL,
+  `DonVi` varchar(50) DEFAULT NULL,
+  `Requested` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hang`
+--
+
+LOCK TABLES `hang` WRITE;
+/*!40000 ALTER TABLE `hang` DISABLE KEYS */;
+INSERT INTO `hang` VALUES (1,'Bia',10000,12000,111,'lonf',0),(2,'Tra Dao',9000,12000,23,'ly',0),(7,'Nước suối',4000,10000,123,'chai',0),(8,'Bánh Snack',5000,10000,120,'bịch',0),(10,'Trái cây',10000,20000,105,'đĩa',0),(11,'Pepsi',5000,13000,123,'chai',0),(12,'Nước cam',8000,15000,120,'ly',0),(13,'Trà đá',3000,10000,117,'ly',0),(14,'Sữa',5000,15000,118,'ly',0),(15,'Sinh tố',5000,15000,117,'ly',0),(16,'Bánh bông lan',5000,15000,117,'cái',0),(17,'Nước ép nho',10000,20000,123,'ly',0),(18,'Nước ép cam',10000,20000,123,'ly',0),(19,'Mì gói',5000,15000,24,'tô',0);
+/*!40000 ALTER TABLE `hang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hoadondv`
+--
+
+DROP TABLE IF EXISTS `hoadondv`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hoadondv` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID_ThuePhong` int(11) NOT NULL,
+  `NgayGioLap` datetime NOT NULL,
+  `SoGio` float DEFAULT NULL,
+  `TenKH` char(50) DEFAULT NULL,
+  `TongTien` int(11) NOT NULL,
+  `TienPhong` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hoadondv`
+--
+
+LOCK TABLES `hoadondv` WRITE;
+/*!40000 ALTER TABLE `hoadondv` DISABLE KEYS */;
+INSERT INTO `hoadondv` VALUES (67,1,'2017-03-03 00:00:00',1.48653e15,'',250000,210000),(68,2,'2017-03-03 00:00:00',2.41357e15,'',477000,408000),(69,3,'2017-03-03 00:00:00',3.3724e15,'',1001000,911000),(70,4,'2017-03-03 00:00:00',2.22221e15,'',697000,607000),(71,5,'2017-03-03 00:00:00',1.48653e15,'',250000,210000),(72,6,'2017-03-03 00:00:00',1.48653e15,'',250000,210000),(73,7,'2017-03-03 00:00:00',1.48653e15,'',250000,210000),(74,8,'2017-03-03 00:00:00',2.78876e16,'',21000,1000),(75,9,'2017-03-03 00:00:00',1.37736e16,'',78000,3000),(77,16,'2018-01-01 10:00:00',0,NULL,0,0),(85,24,'2017-05-24 20:27:03',0,'',0,0),(86,25,'2017-05-25 14:23:32',0,'',0,0);
+/*!40000 ALTER TABLE `hoadondv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hoadonnhap`
+--
+
+DROP TABLE IF EXISTS `hoadonnhap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hoadonnhap` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `NgayNhap` datetime NOT NULL,
+  `TongTien` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hoadonnhap`
+--
+
+LOCK TABLES `hoadonnhap` WRITE;
+/*!40000 ALTER TABLE `hoadonnhap` DISABLE KEYS */;
+INSERT INTO `hoadonnhap` VALUES (1,'2017-03-04 00:00:00',20000),(2,'2017-03-03 00:00:00',0),(3,'2017-03-03 00:00:00',1171000),(4,'2017-03-03 00:00:00',0),(5,'2017-03-03 00:00:00',2380000),(6,'2017-03-03 00:00:00',2200000),(7,'2017-03-03 00:00:00',1600000),(8,'2017-03-03 00:00:00',940000),(9,'2017-03-03 00:00:00',1170000),(10,'2017-03-03 00:00:00',260000),(11,'2017-03-03 00:00:00',500000),(12,'2017-03-03 00:00:00',240000),(13,'2017-03-03 00:00:00',1200000);
+/*!40000 ALTER TABLE `hoadonnhap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nguoidung`
+--
+
+DROP TABLE IF EXISTS `nguoidung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nguoidung` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `MaDangNhap` varchar(50) NOT NULL,
+  `MatKhau` varchar(50) NOT NULL,
+  `HoTen` varchar(50) DEFAULT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `SoDT` varchar(50) DEFAULT NULL,
+  `MaNhomQuyen` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nguoidung`
+--
+
+LOCK TABLES `nguoidung` WRITE;
+/*!40000 ALTER TABLE `nguoidung` DISABLE KEYS */;
+INSERT INTO `nguoidung` VALUES (1,'3tm','3tm',NULL,NULL,NULL,1),(2,'toan','3tm','','','',2),(3,'minh','3tm','minh',NULL,NULL,2),(4,'tien','3tm',NULL,NULL,NULL,2),(5,'thao','3tm',NULL,NULL,NULL,2);
+/*!40000 ALTER TABLE `nguoidung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nhomquyen`
+--
+
+DROP TABLE IF EXISTS `nhomquyen`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nhomquyen` (
+  `MaNhomQuyen` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `TenNhomQuyen` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`MaNhomQuyen`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhomquyen`
+--
+
+LOCK TABLES `nhomquyen` WRITE;
+/*!40000 ALTER TABLE `nhomquyen` DISABLE KEYS */;
+INSERT INTO `nhomquyen` VALUES (1,'admin'),(2,'user');
+/*!40000 ALTER TABLE `nhomquyen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `phieuchi`
+--
+
+DROP TABLE IF EXISTS `phieuchi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `phieuchi` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `NgayLap` datetime NOT NULL,
+  `NoiDung` varchar(500) NOT NULL,
+  `TongTien` int(11) NOT NULL,
+  `GhiChu` varchar(500) DEFAULT NULL,
+  `Deleted` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phieuchi`
+--
+
+LOCK TABLES `phieuchi` WRITE;
+/*!40000 ALTER TABLE `phieuchi` DISABLE KEYS */;
+INSERT INTO `phieuchi` VALUES (1,'2017-03-03 00:00:00','Tiền điện',300000,'none',NULL),(2,'2017-03-03 00:00:00','Tiền nước ',200000,'none',NULL),(3,'2017-03-03 00:00:00','Tiền sửa mic',20000,'none',NULL),(4,'2017-03-03 00:00:00','Bể ly',15000,'jh',NULL),(5,'2017-03-03 00:00:00','Ma',1000000000,'none',NULL),(6,'2017-03-03 00:00:00','Sửa mái hiên',100000,'',NULL),(7,'2017-03-03 00:00:00','Mua cửa mới',200000,NULL,NULL),(8,'2017-03-03 00:00:00','Thưởng tết',500000000,NULL,NULL),(10,'2017-03-03 00:00:00','Lương nhân viên',10000000,NULL,NULL),(11,'2017-03-03 00:00:00','Xây thêm phòng',10000000,NULL,NULL),(12,'2017-03-03 00:00:00','Quảng cáo',2000000,NULL,NULL),(13,'2017-03-03 00:00:00','Thưởng',3000000,NULL,NULL),(14,'2017-03-03 00:00:00','sdf',100000,'0',NULL);
+/*!40000 ALTER TABLE `phieuchi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `phong`
+--
+
+DROP TABLE IF EXISTS `phong`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `phong` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Ten` char(10) DEFAULT NULL,
+  `StatusID` int(11) DEFAULT NULL,
+  `GiaNgay` int(11) DEFAULT NULL,
+  `GiaDem` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phong`
+--
+
+LOCK TABLES `phong` WRITE;
+/*!40000 ALTER TABLE `phong` DISABLE KEYS */;
+INSERT INTO `phong` VALUES (1,'C1',1,100000,200000),(4,'C2',1,100000,200000),(5,'C3',0,100000,200000),(6,'C4',0,100000,200000),(7,'C5',0,100000,200000),(8,'C6',0,100000,200000),(9,'C7',0,100000,200000),(10,'C8',0,100000,200000),(11,'C9',0,100000,200000),(12,'C10',0,100000,200000),(13,'P1',1,100000,200000),(14,'P2',0,100000,200000),(15,'x',1,100000,200000);
+/*!40000 ALTER TABLE `phong` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `thamso`
+--
+
+DROP TABLE IF EXISTS `thamso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `thamso` (
+  `Name` varchar(50) NOT NULL,
+  `Value` varchar(500) DEFAULT NULL,
+  `Deleted` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `thamso`
+--
+
+LOCK TABLES `thamso` WRITE;
+/*!40000 ALTER TABLE `thamso` DISABLE KEYS */;
+INSERT INTO `thamso` VALUES ('ChuKy','7',0),('GioiHanDatHang','3',0),('GioNgayDem','18:00:00',0),('TienPhat','100',0),('WarningNum','3',0);
+/*!40000 ALTER TABLE `thamso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `thuephong`
+--
+
+DROP TABLE IF EXISTS `thuephong`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `thuephong` (
+  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID_Phong` varchar(200) NOT NULL,
+  `TGStart` datetime DEFAULT NULL,
+  `TGEnd` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `thuephong`
+--
+
+LOCK TABLES `thuephong` WRITE;
+/*!40000 ALTER TABLE `thuephong` DISABLE KEYS */;
+INSERT INTO `thuephong` VALUES (1,'15','2016-01-01 10:00:00',NULL),(2,'13','2016-01-01 10:00:00',NULL),(24,'4','2017-05-24 20:27:03',NULL),(25,'1','2017-05-25 14:23:32',NULL);
+/*!40000 ALTER TABLE `thuephong` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'qlkara'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `addct_hoadondv` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addct_hoadondv`(in idhoadon int,in idhang int,in sl int)
 BEGIN
 	if((select SLTon from hang where idhang=ID)>sl) then
 		if((select count(ID) from ct_hoadondv where ID_Hang=idhang and idhoadon=ID_HoaDonDV)=1)
@@ -364,14 +427,52 @@ BEGIN
 		select * from ct_hoadondv group by ID desc limit 1 offset 0; 
     else select 0;
     end if;
-END$$
-
-###########
-USE `qlkara`;
-DROP procedure IF EXISTS `deletect_hoadondv`;
-DELIMITER $$
-USE `qlkara`$$
-CREATE PROCEDURE deletect_hoadondv(in idhoadon int,in idhang int)
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `createHoaDonDV` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createHoaDonDV`(in idphong int, in startdate datetime)
+BEGIN
+	insert into thuephong(ID_Phong,TGStart,TGEnd) values (idphong,startdate,null);
+    
+    insert into hoadondv(ID_ThuePhong,NgayGioLap,SoGio,TenKH,TongTien,TienPhong) 
+		values ((select ID from thuephong where ID_Phong=idphong and TGStart=startdate)
+				,startdate,0,"",0,0);
+	
+    update phong 
+    set StatusID = 1
+    where idphong = ID;
+    
+    select * from hoadondv group by ID desc limit 1 offset 0; 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `deletect_hoadondv` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `deletect_hoadondv`(in idhoadon int,in idhang int)
 BEGIN
 	set @sl = (select SoLuong from ct_hoadondv where idhoadon=ID_HoaDonDV and idhang=ID_Hang);
 	if(@sl is not null) then
@@ -384,14 +485,67 @@ BEGIN
     select 0;
 	else select 1;
 	end if;
-END$$
-
-##########################
-USE `qlkara`;
-DROP procedure IF EXISTS `updatect_hoadondv`;
-DELIMITER $$
-USE `qlkara`$$
-CREATE PROCEDURE updatect_hoadondv(in idhoadon int,in idhang int,in slmoi int)
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getHoaDonDV` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getHoaDonDV`(in idphong int)
+begin
+	select a.ID,a.ID_ThuePhong,a.NgayGioLap,a.SoGio,a.TenKH from
+    hoadondv a join thuephong b on a.ID_ThuePhong =b.ID
+    join phong c on b.ID_Phong = c.ID
+    where c.StatusID=1 and c.ID=idphong;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `getListCT_HoaDonDV` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getListCT_HoaDonDV`(in idhoadondv int)
+begin
+	select a.ID,a.ID_HoaDonDV,a.ID_Hang,a.SoLuong,a.DonGia,a.ThanhTien,b.Ten from
+    ct_hoadondv a join hang b on a.ID_Hang =b.ID
+    where a.ID_HoaDonDV=idhoadondv
+	 and 1=(select StatusID from Phong where ID=(select ID_Phong from thuephong where ID= (select ID_ThuePhong from hoadondv where idhoadondv=ID)));
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `updatect_hoadondv` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updatect_hoadondv`(in idhoadon int,in idhang int,in slmoi int)
 BEGIN
 	set @slcu = (select SoLuong from ct_hoadondv where idhoadon=ID_HoaDonDV and idhang=ID_Hang);
 	set @sltonmoi = (select SLTon from hang where ID=idhang) - slmoi + @slcu;
@@ -409,5 +563,20 @@ BEGIN
     select 1;
 	else select 0;
 	end if;
-END$$
-###########################
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-05-26  9:32:27

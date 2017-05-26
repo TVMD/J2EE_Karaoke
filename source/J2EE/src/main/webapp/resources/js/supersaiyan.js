@@ -28,6 +28,10 @@ function ajaxphong(){
 				$('#divtgbatdau').html(data);
 				$('#tgbatdau').val(moment($('#tgbatdau').val()).format("DD-MM-YYYY HH:mm:ss"));
 				settinterval();
+				
+				if(data.indexOf("input")<0){
+					$("#divsogio").hide();
+				}
 			}
 		});
 }
@@ -39,12 +43,6 @@ function ctphong_ready() {
     $("#btnback").on("click", function () {
     	window.location='/uit/getAllPhong'
     });
-    if($("#divtgbatdau").html().indexOf("input")<0){
-    	$("#divsogio").hide();
-    }
-    else{
-    	settinterval();
-    }
     
     $("#btntinhtien").on("click",function(){
     	location.href='/uit/tinhtien?hoadon='+$("#idhoadondv").val();
@@ -144,7 +142,7 @@ function btnaddcthoadon(){
 			   ajaxct_hoadondv()
 		   },
 		   error: function(){
-			   alert("Có vẻ bạn đã hết loại hàng này!");
+			   alert("Lỗi: Kiểm tra nhập đủ thông tin, hoặc số lượng hàng tồn kho và thử lại");
 		   }
 		 });
 }
@@ -170,7 +168,7 @@ function btndelcthoadon(caller){
 		   success: function(x){
 			   ajaxct_hoadondv()
 		   },
-		   error: alert("Something is just not right.")
+		   error: alert("Lỗi: Có thể bạn đang cố xóa một dòng không tồn tại.")
 		 });
 }
 function btneditcthoadon(caller){
