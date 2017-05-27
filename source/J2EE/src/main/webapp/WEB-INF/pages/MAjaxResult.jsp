@@ -73,5 +73,48 @@
                     </tbody>
                 </table>
 	 </c:if>
+	 
+	 <c:if test="${dsphong != null }">
+	 	 <table class="table table-hover table-bordered">
+                    <thead style="background-color: #bce8f1;">
+                    <tr>
+                    	<th style="display:none;"/>
+                        <th>Tên phòng</th>
+                        <th style="display:none;"/>
+                        <th>Giá ngày</th>
+                        <th>Giá đêm</th>
+                        <th style="display:none;"/>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${dsphong}" var="item">
+                        <tr >
+                        	<th style="display:none;"><c:out value="${item.ID}"/></th>
+                            <th ondblclick="$(this).children().dblclick();">
+                            <input  value=<c:out value="${item.ten}"/> class="input-editable" disabled="true"/>
+                            </th>
+                            <th style="display:none;"><c:out value="${item.statusID}"/></th>
+                            <th  ondblclick="$(this).children().dblclick();">
+                             <input  value=<c:out value="${item.giaNgay}"/> class="input-editable" disabled="true"/>
+							</th>
+                            <th ondblclick="$(this).children().dblclick();">
+                             <input  value=<c:out value="${item.giaDem}"/> class="input-editable" disabled="true"/>
+                            </th> 
+                            <th id="editrow" >
+                            	 <a id="editphong" onclick="editphong(this);" class="btn btn-success btn-sm">
+      								<span class="glyphicon glyphicon-pencil"></span>
+   		  		  				</a> 
+                            </th>
+                           <th id="deleterow">
+                            	 <a onclick="deletephong(this);"  class="btn btn-warning btn-sm">
+      								<span class="glyphicon glyphicon-remove"></span>
+   		  		  				</a> 
+                            </th>                         
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+	 </c:if>
 </body>
 </html>

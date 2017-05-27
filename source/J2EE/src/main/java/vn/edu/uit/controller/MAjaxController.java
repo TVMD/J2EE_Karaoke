@@ -20,10 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import vn.edu.uit.entity.MCT_HoaDonDV;
 import vn.edu.uit.entity.MHang;
 import vn.edu.uit.entity.MHoaDonDV;
+import vn.edu.uit.entity.MPhong;
 import vn.edu.uit.entity.MThuePhong;
 import vn.edu.uit.service.MCT_HoaDonDVService;
 import vn.edu.uit.service.MHangService;
 import vn.edu.uit.service.MHoaDonDVService;
+import vn.edu.uit.service.MPhongService;
 import vn.edu.uit.service.MThuePhongService;
 
 @Controller
@@ -46,6 +48,9 @@ public class MAjaxController {
 	
 	@Autowired
 	private MCT_HoaDonDVService cthoadonService;
+	
+	@Autowired
+	private MPhongService phongService;
 	
 	 
     @RequestMapping(value = {"thuephong"})
@@ -107,5 +112,12 @@ public class MAjaxController {
     	logger.info("update ct_hoadon dv , update sl ton, tinh thanhtien");
     	Long x= cthoadonService.updateCT_HoaDonDV(Long.parseLong(idhoadon), Long.parseLong(idhang),Long.parseLong(soluong));
         return x.toString();
+    }
+    
+    @RequestMapping(value = "ajax_getallPhong", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    ModelAndView ajxaxgetallphong() {
+    	 List<MPhong> phongList = phongService.getAllPhong();
+         return new ModelAndView("MAjaxResult", "dsphong", phongList);
     }
 }

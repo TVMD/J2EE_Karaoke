@@ -74,7 +74,7 @@ public class MPhong implements Serializable {
 		StatusID = statusID;
 	}
 
-	public double getGiaNgay() {
+	public long getGiaNgay() {
 		return GiaNgay;
 	}
 
