@@ -70,6 +70,7 @@ public class PaymentDAOImpl implements PaymentDAO {
             payment.setTongTien(tongTien);
             payment.setGhiChu(ghiChu);
             payment.setDeleted(deleted);
+            payments.add(payment);
         }
         System.out.println(payments);
         return payments;
