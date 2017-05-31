@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,18 +9,20 @@
     <!-- Bootstrap CSS -->
     <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style type="text/css">
         .myrow-container {
             margin: 20px;
         }
     </style>
+
 </head>
 <body class=".container-fluid">
 <div class="container myrow-container">
     <div class="panel panel-success">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <div align="left"><b>Payments List</b> </div>
+                <div align="left"><b>Danh sách Phiếu chi</b> </div>
                 <div align="right"><a href="createPayment">Add New Payment</a></div>
             </h3>
         </div>
@@ -31,23 +33,38 @@
             <c:if test="${not empty paymentList}">   
             
                 <form action="searchPayment">
-                    <div class="row">
-                      <div class="col-md-6"><div class="col-md-6">Search Payments:</div><div class="col-md-6"> <input type="text" name="searchNoiDung" id="searchNoiDung"> </div></div>
-                      <div class="col-md-4"><input class="btn btn-success" type='submit' value='Search'/></div>
+                    <div class="row form-group">
+                      <div class="col-md-6">
+	                      <div class="col-md-6">Tìm kiếm theo nội dung chi:</div>
+	                      <div class="col-md-6">
+	                       	<input type="text" class="form-control" name="searchNoiDung" id="searchNoiDung"> 
+	                      </div>
+                       </div>
+                      <div class="col-md-6">
+                      	<div class="col-md-6">
+                      		<input class="btn btn-success" type='submit' value='Search'/>
+                      	</div>
+                      	<div class="col-md-6">
+                      		<div align = "right">
+                      		<input type="button" id="create" class="btn btn-primary" value="Create" onclick="window.location='/uit/createPayment'"/>
+                 		</div>
+                 		</div>
+                      </div>
+                      
                     </div>
-                </form>             
+                </form>
+                <hr>
                                 
                 <table class="table table-hover table-bordered">
                     <thead style="background-color: #bce8f1;">
                     <tr>
-                        <th>Id</th>
-                        <th>Ngay lap</th>
-                        <th>Noi dung</th>
-                        <th>Tong tien</th>
-                        <th>Ghi chu</th>
-                        <th>Deleted</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Mã</th>
+                        <th>Ngày lập phiếu</th>
+                        <th>Nội dung chi</th>
+                        <th>Tổng tiền chi</th>
+                        <th>Ghi chú</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,7 +75,6 @@
                             <th><c:out value="${pmt.noiDung}"/></th>
                             <th><c:out value="${pmt.tongTien}"/></th> 
                             <th><c:out value="${pmt.ghiChu}"/></th>
-                            <th><c:out value="${pmt.deleted}"/></th> 
                             <th><a href="editPayment?id=<c:out value='${pmt.ID}'/>">Edit</a></th>
                             <th><a href="deletePayment?id=<c:out value='${pmt.ID}'/>">Delete</a></th>                          
                         </tr>

@@ -51,9 +51,9 @@ public class PaymentDAOImpl implements PaymentDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Payment> getAllPayments(String paymentNoiDung) {
+	public List<Payment> getAllPayments(String searchNoiDung) {
 		// TODO Auto-generated method stub
-		String query = "SELECT e.* FROM PhieuChi e WHERE e.NoiDung like '%"+ paymentNoiDung +"%'";
+		String query = "SELECT e.* FROM PhieuChi e WHERE e.NoiDung like '%"+ searchNoiDung +"%'";
 		List<Object[]> paymentObjects = hibernateUtil.fetchAll(query);
 		List<Payment> payments = new ArrayList<Payment>();
 		for(Object[] paymentObject: paymentObjects) {
@@ -61,7 +61,7 @@ public class PaymentDAOImpl implements PaymentDAO {
             long ID = ((Integer) paymentObject[0]).longValue();         
             String ngayLap = (String) paymentObject[1].toString();
             String noiDung = (String) paymentObject[2];
-            double tongTien = (double) paymentObject[3];
+            int tongTien = (int) paymentObject[3];
             String ghiChu = (String) paymentObject[4];
             int deleted = (int) paymentObject[5];
             payment.setID(ID);
