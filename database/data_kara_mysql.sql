@@ -580,3 +580,19 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-05-26  9:32:27
+
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `baocaodoanhso`(in thang  int,in nam int)
+BEGIN
+	set @doanhthu = (select Sum(TongTien) from hoadondv where month(NgayGioLap) = thang and year(NgayGioLap)=nam);
+    set @chiphi = (select sum(TongTien) from hoadonnhap where month(NgayNhap) = thang and year(NgayNhap)=nam);
+    set @chiphi = @chiphi + (select sum(TongTien) from phieuchi where month(NgayLap) = thang and year(NgayLap)=nam);
+    
+    select thang as thang 
+		,nam as Nam
+        ,@doanhthu as DoanhThu
+        ,@chiphi as ChiPhi;
+
+END ;;
+DELIMITER ;
+

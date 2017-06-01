@@ -116,5 +116,79 @@
                     </tbody>
                 </table>
 	 </c:if>
+	
+	<c:if test="${nguoidung !=null }"> 
+	 <div class="col-md-12 col-sm-12 col-xs-12 well">
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Thông tin người dùng</h3>
+            <ul class="nav navbar-right panel_toolbox"></ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br />
+            <form action="creaupuser" method="post">
+            <div class="form-horizontal form-label-left">
+            	<input name="id" type="hidden" id="idphong" value="${nguoidung.ID}"/>
+            	
+                <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Mã đăng nhập</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input name="madangnhap" id="madangnhap" type="text" class="form-control"
+                        	value="${nguoidung.maDangNhap }" />
+                    </div>
+                </div>
+                
+                <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Mật khẩu</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input name="matkhau" id="matkhau" type="password" class="form-control" 
+                        value="${nguoidung.matKhau }"/>
+                    </div>
+                </div>
+                
+                <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Họ tên</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input name="hoten" id="hoten" type="text" class="form-control"
+                        value="${nguoidung.hoTen }" />
+                    </div>
+                </div>
+                
+                 <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Email</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input name="email" id="mail" type="text" class="form-control" 
+                        value="${nguoidung.email }"/>
+                    </div>
+                </div>
+                
+                 <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">SĐT</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <input name="sodt" id="sodt" type="text" class="form-control" 
+                        value="${nguoidung.soDT }"/>
+                    </div>
+                </div>
+                
+                   <div class="form-group col-sm-3 col-md-3">
+                    <label class="control-label col-md-5 col-sm-5 col-xs-5">Nhóm quyền</label>
+                    <div class="col-md-7 col-sm-7 col-xs-7">
+                        <select name="manhomquyen" selected="${nguoidung.maNhomQuyen }">
+                        	<option value="2" <c:if test="${nguoidung.maNhomQuyen==2 }"> selected </c:if>>User</option>
+                        	<option value="1" <c:if test="${nguoidung.maNhomQuyen==1 }"> selected </c:if>>Admin</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group col-sm-3 col-md-3">
+   		  		  	<a onclick="$('#submit').click();" class="btn btn-success btn-sm">
+      							<span class="glyphicon glyphicon-ok"></span>
+   		  		  	</a>
+   		  		  	<input id = "submit" type="submit" hidden="true" onclick="submitclick(e);"/> 
+   		  		 </div>
+            </div>
+            </form>
+           </c:if>
 </body>
 </html>
