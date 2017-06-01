@@ -118,6 +118,7 @@
 	 </c:if>
 	
 	<c:if test="${nguoidung !=null }"> 
+	 <form action="creaupuser" method="post">
 	 <div class="col-md-12 col-sm-12 col-xs-12 well">
     <div class="x_panel">
         <div class="x_title">
@@ -185,10 +186,11 @@
    		  		  	<a onclick="$('#submit').click();" class="btn btn-success btn-sm">
       							<span class="glyphicon glyphicon-ok"></span>
    		  		  	</a>
-   		  		  	<input id = "submit" type="submit" hidden="true" onclick="submitclick(e);"/> 
+   		  		  	<input id = "submit" type="submit" hidden="true"/> 
    		  		 </div>
             </div>
             </form>
+            </div>
            </c:if>
 </body>
 </html>
