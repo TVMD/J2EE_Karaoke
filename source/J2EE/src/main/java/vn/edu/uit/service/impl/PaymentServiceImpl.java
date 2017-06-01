@@ -53,9 +53,9 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public List<Payment> getAllPayments(String noiDung) {
+	public List<Payment> getAllPayments(String noiDung, String fromDate, String toDate) {
 		// TODO Auto-generated method stub
-		return paymentDAO.getAllPayments(noiDung);
+		return paymentDAO.getAllPayments(noiDung, fromDate, toDate);
 	}
 
 }

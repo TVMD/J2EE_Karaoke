@@ -32,7 +32,7 @@ public class PaymentController {
     }
     
     @RequestMapping("editPayment")
-    public ModelAndView editEmployee(@RequestParam long id, @ModelAttribute Payment payment) {
+    public ModelAndView editPayment(@RequestParam long id, @ModelAttribute Payment payment) {
         logger.info("Updating the Payment for the Id "+id);
         payment = paymentService.getPayment(id);
         return new ModelAndView("paymentForm", "paymentObject", payment);
@@ -64,9 +64,13 @@ public class PaymentController {
     }
     
     @RequestMapping("searchPayment")
-    public ModelAndView searchPayment(@RequestParam("searchNoiDung") String searchNoiDung) {  
-        logger.info("Searching the Payment. Payment NoiDung: "+searchNoiDung);
-        List<Payment> paymentList = paymentService.getAllPayments(searchNoiDung);
+    public ModelAndView searchPayment(
+    		@RequestParam("searchNoiDung") String searchNoiDung,
+    		@RequestParam("fromDate") String fromDate,
+    		@RequestParam("toDate") String toDate
+    		) {  
+        logger.info("Searching the Payment. Payment NoiDung: "+searchNoiDung + " from Date: "+ fromDate + " to Date" + toDate);
+        List<Payment> paymentList = paymentService.getAllPayments(searchNoiDung, fromDate, toDate);
         return new ModelAndView("paymentList", "paymentList", paymentList);      
     }
 }

@@ -19,7 +19,7 @@
                       <div class="col-md-6">
 	                      		<div class="row">
 	                      			<div class="col-md-4" align="right">
-	                      				Tìm kiếm theo nội dung chi
+	                      				Nhập nội dung chi
 	                      			</div>
 	                      			<div class="col-md-8">
 	                       				<input type="text" class="form-control" name="searchNoiDung" id="searchNoiDung">
@@ -44,7 +44,7 @@
 	                      			</div>
 	                      			<div class="col-md-8">
 	                       				<div class='input-group date' id='datetimepicker2'>
-						                    <input class="form-control" required="required id="toDate" name="toDate" placeholder="Format: yyyy-mm-dd"/>
+						                    <input class="form-control" required="required" id="toDate" name="toDate" placeholder="Format: yyyy-mm-dd"/>
 						                    <span class="input-group-addon">
 						                        <span class="glyphicon glyphicon-calendar"></span>
 						                    </span>
@@ -54,12 +54,21 @@
                        </div>
                       <div class="col-md-6">
                       	<div class="col-md-6">
-                      		<input class="btn btn-success" type='submit' value='Search'/>
+                      		<input class="btn btn-success" type='submit' value='Tìm'/>
                       	</div>
                       	<div class="col-md-6">
-                      		<div align = "right">
-                      		<input type="button" id="create" class="btn btn-primary" value="Create" onclick="window.location='/uit/createPayment'"/>
-                 		</div>
+                      		<div class="row">
+	                      			<div class="col-md-6">
+		                      		<div align ="right">
+		                      			<input type="button" id="report" class="btn btn-default" onclick="" value="Tạo báo cáo"/>
+		                      		</div>
+                      			</div>
+	                      			<div class="col-md-6">
+		                      		<div align = "right">
+		                      			<input type="button" id="create" class="btn btn-primary" value="Thêm Phiếu chi" onclick="window.location='/uit/createPayment'"/>
+			                 		</div>
+		                 		</div>
+	                 		</div>
                  		</div>
                       </div>
                       
@@ -71,18 +80,17 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
 	<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
     
-    
-    <script src="../../resources/validatePayment.js"></script>
     <script type="text/javascript">
         function submitPaymentForm() {             
             
             // getting the payment form values
-            var noidung = $('#noidung').val().trim();
-            var tongtien = $('#TongTien').val();
+            var noidung = $('#searchNoiDung').val().trim();
+            var fromDate =$('#fromDate').val();
+            var toDate =$('#toDate').val();
     
-            if(tongtien <= 0) {
-                alert('Số tiền phải lớn hơn 0');
-                $('#TongTien').focus();
+            if(noidung == "") {
+                alert('Nhập vào nội dung cần tìm');
+                $('#noidung').focus();
                 return false;
             }
     
@@ -91,6 +99,7 @@
         
         $(function () {
             $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker2').datetimepicker();
         });
         
         $('.date').datetimepicker({

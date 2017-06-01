@@ -51,9 +51,9 @@ public class PaymentDAOImpl implements PaymentDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Payment> getAllPayments(String searchNoiDung) {
+	public List<Payment> getAllPayments(String searchNoiDung, String fromDate, String toDate) {
 		// TODO Auto-generated method stub
-		String query = "SELECT e.* FROM PhieuChi e WHERE e.NoiDung like '%"+ searchNoiDung +"%'";
+		String query = "SELECT e.* FROM PhieuChi e WHERE ((e.NoiDung like '%"+ searchNoiDung +"%') AND ((e.NgayLap >= '" + fromDate + "') AND (e.NgayLap <= '"+toDate +"')))";
 		List<Object[]> paymentObjects = hibernateUtil.fetchAll(query);
 		List<Payment> payments = new ArrayList<Payment>();
 		for(Object[] paymentObject: paymentObjects) {

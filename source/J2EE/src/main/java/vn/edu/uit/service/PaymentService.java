@@ -10,5 +10,5 @@ public interface PaymentService {
     public void deletePayment(long id);
     public List<Payment> getAllPayments();
     public Payment getPayment(long id);   
-    public List<Payment> getAllPayments(String noiDung);
+    public List<Payment> getAllPayments(String noiDung, String fromDate, String toDate);
 }

@@ -25,6 +25,7 @@
     </style>
 </head>
 <body class=".container-fluid">
+<jsp:include page="header.jsp"></jsp:include>
     <div class="container myrow-container">
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -99,7 +100,6 @@
 	<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
     
     
-    <script src="../../resources/validatePayment.js"></script>
     <script type="text/javascript">
         function submitPaymentForm() {             
             
