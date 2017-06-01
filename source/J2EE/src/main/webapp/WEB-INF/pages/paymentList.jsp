@@ -13,12 +13,15 @@
     <style type="text/css">
         .myrow-container {
             margin: 20px;
+            width: 97%;
+            max-width: 97%;
         }
+        
     </style>
 
 </head>
-<img src="../../resources/images/cover.png"/>
 <body class=".container-fluid">
+<jsp:include page="header.jsp"></jsp:include>
 <div class="container myrow-container">
     <div class="panel panel-success">
         <div class="panel-heading">
@@ -31,15 +34,35 @@
             <c:if test="${empty paymentList}">
                 There are no Payments
             </c:if>
-            <c:if test="${not empty paymentList}">   
-            
+            <c:if test="${not empty paymentList}">
+             <!-- 
                 <form action="searchPayment">
                     <div class="row form-group">
                       <div class="col-md-6">
-	                      <div class="col-md-6">Tìm kiếm theo nội dung chi:</div>
-	                      <div class="col-md-6">
-	                       	<input type="text" class="form-control" name="searchNoiDung" id="searchNoiDung"> 
-	                      </div>
+	                      		<div class="row">
+	                      			<div class="col-md-4" align="right">
+	                      				Tìm kiếm theo nội dung chi
+	                      			</div>
+	                      			<div class="col-md-8">
+	                       				<input type="text" class="form-control" name="searchNoiDung" id="searchNoiDung">
+	                       			</div>
+	                      		</div><br>
+	                      		<div class="row">
+	                      			<div class="col-md-4" align="right">
+	                      				Từ ngày
+	                      			</div>
+	                      			<div class="col-md-8">
+	                       				<input type="date" class="form-control" name="fromDate" id="fromDate">
+	                       			</div>
+	                      		</div><br>
+	                      		<div class="row">
+	                      			<div class="col-md-4" align="right">
+	                      				Đến ngày
+	                      			</div>
+	                      			<div class="col-md-8">
+	                       				<input type=date step=7 min=2014-09-08 class="form-control" name="toDate" id="toDate">
+	                       			</div>
+	                      		</div><br>
                        </div>
                       <div class="col-md-6">
                       	<div class="col-md-6">
@@ -54,28 +77,32 @@
                       
                     </div>
                 </form>
+                 -->
+                 
+                 <jsp:include page="paymentSearch.jsp"></jsp:include>
+                 
                 <hr>
                                 
                 <table class="table table-hover table-bordered">
                     <thead style="background-color: #bce8f1;">
                     <tr>
                         <th>Mã</th>
-                        <th>Ngày lập phiếu</th>
-                        <th>Nội dung chi</th>
-                        <th>Tổng tiền chi</th>
-                        <th>Ghi chú</th>
-                        <th>Chỉnh sửa</th>
-                        <th>Xóa</th>
+                        <th width="15%">Ngày lập phiếu</th>
+                        <th width="30%">Nội dung chi</th>
+                        <th width="10%">Tổng tiền chi</th>
+                        <th width="25%">Ghi chú</th>
+                        <th width="10%">Chỉnh sửa</th>
+                        <th width="10%">Xóaa</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${paymentList}" var="pmt">
                         <tr>
-                            <th><c:out value="${pmt.ID}"/></th>
-                            <th><c:out value="${pmt.ngayLap}"/></th>
-                            <th><c:out value="${pmt.noiDung}"/></th>
-                            <th><c:out value="${pmt.tongTien}"/></th> 
-                            <th><c:out value="${pmt.ghiChu}"/></th>
+                            <td><c:out value="${pmt.ID}"/></td>
+                            <td><c:out value="${pmt.ngayLap}"/></td>
+                            <td><c:out value="${pmt.noiDung}"/></td>
+                            <td><c:out value="${pmt.tongTien}"/></td> 
+                            <td><c:out value="${pmt.ghiChu}"/></td>
                             <th><a href="editPayment?id=<c:out value='${pmt.ID}'/>">Edit</a></th>
                             <th><a href="deletePayment?id=<c:out value='${pmt.ID}'/>">Delete</a></th>                          
                         </tr>
