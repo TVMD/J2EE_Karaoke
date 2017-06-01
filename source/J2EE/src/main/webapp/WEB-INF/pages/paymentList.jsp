@@ -17,6 +17,7 @@
     </style>
 
 </head>
+<img src="../../resources/images/cover.png"/>
 <body class=".container-fluid">
 <div class="container myrow-container">
     <div class="panel panel-success">
