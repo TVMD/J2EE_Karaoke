@@ -14,6 +14,8 @@
  </style>
 </head>
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
 <div class="col-md-12 col-sm-12 col-xs-12 well">
     <div class="x_panel">
         <div class="x_title">

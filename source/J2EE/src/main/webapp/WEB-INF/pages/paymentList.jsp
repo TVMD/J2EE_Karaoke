@@ -1,6 +1,7 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,12 +10,16 @@
     <!-- Bootstrap CSS -->
     <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
     <style type="text/css">
         .myrow-container {
-            margin: 20px;
+            margin: 20px;/* 
             width: 97%;
-            max-width: 97%;
+            max-width: 97%; */
         }
         
     </style>
@@ -22,18 +27,21 @@
 </head>
 <body class=".container-fluid">
 <jsp:include page="header.jsp"></jsp:include>
-<div class="container myrow-container">
-    <div class="panel panel-success">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <div align="left"><b>Danh sách Phiếu chi</b> </div>
-            </h3>
-        </div>
-        <div class="panel-body">
-            <c:if test="${empty paymentList}">
-                There are no Payments
-            </c:if>
-            <c:if test="${not empty paymentList}">
+	<div class="container myrow-container">
+	    <div class="panel panel-success">
+	        <div class="panel-heading">
+	        
+	                <div align="left">
+	            <h3 class="panel-title">
+                	<b>Danh sách Phiếu chi</b> 
+            	</h3>
+                	</div>
+        	</div>
+	        <div class="panel-body">
+	            <c:if test="${empty paymentList}">
+	                There are no Payments
+	            </c:if>
+	            <c:if test="${not empty paymentList}">
              <!-- 
                 <form action="searchPayment">
                     <div class="row form-group">
@@ -91,7 +99,7 @@
                         <th width="10%">Tổng tiền chi</th>
                         <th width="25%">Ghi chú</th>
                         <th width="10%">Chỉnh sửa</th>
-                        <th width="10%">Xóaa</th>
+                        <th width="10%">Xóa</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -111,9 +119,10 @@
             </c:if>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+     
     <%-- <script src="<c:url value="/resources/js/jquery-2.1.3.js"/>"></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
      --%>

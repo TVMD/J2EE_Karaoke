@@ -87,7 +87,7 @@ public class MPhongController {
         return new ModelAndView("");
     }
     
-    @RequestMapping(value = {"getAllPhong", "/"})
+    @RequestMapping(value = {"getAllPhong"})
     public ModelAndView getAllPhong() {
         logger.info("Getting the all Phong");
         List<MPhong> phongList = phongService.getAllPhong();

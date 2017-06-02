@@ -14,6 +14,7 @@
  </style>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <div class="col-md-4">
 <form action="bcdoanhthu" method="get">
 	<div class="form-group">
@@ -23,17 +24,17 @@
                  <c:forEach begin="1" end="12" step="1" varStatus="loop">
     				  <option value="${loop.count}"><c:out value="${loop.count}"/></option>
 				</c:forEach>
-            </select>
+            </select><br>
             <select class="form-control" name="nam">
              	<option value="0">Chọn năm</option>
                  <c:forEach begin="2000" end="2030" step="1" varStatus="loop">
     				  <option value="${loop.count + 2000}"><c:out value="${loop.count +2000}"/></option>
 				</c:forEach>
-            </select>
+            </select><br>
+   		 <input type="submit" class="form-control btn btn-primary" value="Xem báo cáo">
         </div>
-   		 </div>
+       </div>
    		 
-   		 <input type="submit" value="Xem báo cáo">
 </form>
 </div>
 <div class="col-md-8" <c:if test="${baocao==null }"> style="display: none;" </c:if>>

@@ -9,6 +9,8 @@
  <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
 </head>
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
 <div class="col-md-12 col-sm-12 col-xs-12 well">
     <div class="x_panel">
         <div class="x_title">

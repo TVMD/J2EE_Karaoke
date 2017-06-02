@@ -25,6 +25,8 @@
    </style>
 </head>
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
 <h2 style='padding-left:40% ; padding-right:20%;'>Danh sách phòng</h2>
 <div>
 	<div class='row'>

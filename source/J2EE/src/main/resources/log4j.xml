@@ -35,7 +35,7 @@
 <logger name="org.hibernate">
     <level value="ALL" />
     <appender-ref ref="FILE"/>
-</logger>
+</logger> 
 
 	<!-- Root Logger -->
 	<root>
