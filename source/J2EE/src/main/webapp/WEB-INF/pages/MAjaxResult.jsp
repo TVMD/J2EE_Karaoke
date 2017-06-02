@@ -192,5 +192,34 @@
             </form>
             </div>
            </c:if>
+           
+          <c:if test="${dscthoadondv_toan != null }">
+	 	 <table class="table table-hover table-bordered">
+                    <thead style="background-color: #bce8f1;">
+                    <tr>
+                    	<th style="display:none;"/>
+                        <th>Tên món</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${dscthoadondv_toan}" var="item">
+                        <tr>
+                        	<th style="display:none;"><c:out value="${item.ID_Hang}"/></th>
+                            <th><c:out value="${item.tenHang}"/></th>
+                            <th>
+                            	<c:out value="${item.soLuong}"/>
+                            </th>
+                            <th><c:out value="${item.donGia}"/></th>
+                            <th><c:out value="${item.thanhTien}"/></th> 
+                           
+                        </tr>
+                    </c:forEach>
+                    
+                    </tbody>
+                </table>
+	 </c:if>
 </body>
 </html>

@@ -123,4 +123,11 @@ public class MAjaxController {
     	 List<MPhong> phongList = phongService.getAllPhong();
          return new ModelAndView("BaoCaoDoanhThu", "dsphong", phongList);
     }
+    
+    @RequestMapping(value = {"dsct_hoadondv_toan"})
+    public ModelAndView getCT_HoaDonDVtoan(@RequestParam long idhoadondv) {
+        logger.info("Getting ds ct_hoadondv");
+        List<MCT_HoaDonDV> result = cthoadonService.getCT_HoaDonDVbyHoaDon(idhoadondv);
+        return new ModelAndView("MAjaxResult", "dscthoadondv_toan", result);
+    } 
 }

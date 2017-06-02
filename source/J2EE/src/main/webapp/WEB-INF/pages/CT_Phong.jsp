@@ -23,7 +23,7 @@
                 <div class="form-group col-sm-3 col-md-3 ">
                     <label class="control-label col-md-5 col-sm-5 col-xs-5">Tên phòng</label>
                     <div class="col-md-7 col-sm-7 col-xs-7">
-                         <input type="text" class="form-control" disabled value="${phong.ten }" />
+                         <input id="inputtenphong" type="text" class="form-control" disabled value="${phong.ten }" />
                     </div>
                 </div>
                 <div class="form-group col-sm-3 col-md-3">

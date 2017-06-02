@@ -45,7 +45,7 @@ function ctphong_ready() {
     });
     
     $("#btntinhtien").on("click",function(){
-    	location.href='/uit/tinhtien?hoadon='+$("#idhoadondv").val();
+    	location.href='/uit/tinhtien?idhoadondv='+$("#idhoadondv").val()+'&tenphong='+$("#inputtenphong").val();
     })
     
     

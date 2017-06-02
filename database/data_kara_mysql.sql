@@ -500,15 +500,18 @@ DELIMITER ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+USE `qlkara`;
+DROP procedure IF EXISTS `getHoaDonDV`;
+DELIMITER $$
+USE `qlkara`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getHoaDonDV`(in idphong int)
 begin
 	select a.ID,a.ID_ThuePhong,a.NgayGioLap,a.SoGio,a.TenKH from
     hoadondv a join thuephong b on a.ID_ThuePhong =b.ID
     join phong c on b.ID_Phong = c.ID
-    where c.StatusID=1 and c.ID=idphong;
-end ;;
-DELIMITER ;
+    where c.StatusID=1 and c.ID=idphong
+    order by a.ID DESC;
+end$$
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
@@ -596,3 +599,62 @@ BEGIN
 END ;;
 DELIMITER ;
 
+/*///////////////////////////////////////////////*/
+USE `qlkara`;
+DROP procedure IF EXISTS `getTienPhong`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getTienPhong`(in idhoadondv int)
+begin	
+	set @id_thuephong = (select ID_ThuePhong from hoadondv where ID = idhoadondv);
+    
+    set @statusid = (select StatusID from phong p join thuephong t on p.ID=t.ID_Phong where t.ID = @id_thuephong);
+    if(@statusid = 1) then
+    
+	update thuephong
+    set TGEnd = now()
+    where ID = @id_thuephong;
+
+    set @bd= (select TGStart
+    from thuephong
+    where ID=@id_thuephong);
+    
+    set @kt= (select TGEnd 
+    from thuephong
+    where ID=@id_thuephong);
+	
+    set @sogio = (timestampdiff(second, @bd, @kt)/3600);
+    
+    set @gia = (select p.GiaNgay from phong p join thuephong t on p.ID=t.ID_Phong where t.ID = @id_thuephong);
+    
+    set @tiendo= (select sum(ThanhTien) 
+    from ct_hoadondv ct join hoadondv h on ct.ID_HoaDonDV=h.ID 
+    where h.ID = idhoadondv
+    group by ID_HoaDonDV);
+    
+    update hoadondv 
+    set SoGio = @sogio, TienPhong = @sogio*@gia, TongTien = @tiendo + TienPhong
+    where ID = idhoadondv;
+    
+    update phong
+    set StatusID = 0
+    where ID = (select ID_Phong from thuephong where ID = @id_thuephong);
+    
+    end if;
+    
+    select * from hoadondv where ID=idhoadondv;
+    
+end$$
+
+/*//////////////////////////////////////////////////////////////////*/
+USE `qlkara`;
+DROP procedure IF EXISTS `getListCT_HoaDonDV_Toan`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getListCT_HoaDonDV_Toan`(in idhoadondv int)
+begin
+ select a.ID,a.ID_HoaDonDV,a.ID_Hang,a.SoLuong,a.DonGia,a.ThanhTien,b.Ten from
+    ct_hoadondv a join hang b on a.ID_Hang =b.ID
+    where a.ID_HoaDonDV=idhoadondv;
+
+end$$

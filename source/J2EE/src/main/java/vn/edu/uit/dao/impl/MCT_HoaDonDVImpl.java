@@ -80,7 +80,7 @@ public class MCT_HoaDonDVImpl implements MCT_HoaDonDVDAO {
 	
 	@Override
 	public List<MCT_HoaDonDV> getCT_HoaDonDVbyHoaDon(long idhoadon) {
-		String query="CALL getListCT_HoaDonDV("+idhoadon+");";
+		String query="CALL getListCT_HoaDonDV_Toan("+idhoadon+");";
 		List<Object[]> x = hibernateUtil.GetSessionFactory().getCurrentSession().createSQLQuery(query).list();
 		List<MCT_HoaDonDV> list = new ArrayList<MCT_HoaDonDV>();
 		MCT_HoaDonDV re;
