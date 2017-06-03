@@ -28,6 +28,7 @@
             <form action="creaup" method="post">
             <div class="form-horizontal form-label-left">
             	<input name="id" type="hidden" id="idphong" value="0"/>
+            	<input name="statusid" type="hidden" id="idphong" value="0"/>
             	
                 <div class="form-group col-sm-3 col-md-3">
                     <label class="control-label col-md-5 col-sm-5 col-xs-5">Tên phòng</label>
@@ -106,7 +107,8 @@
   	function editphong(caller){
   		var idphong = $(caller).parent().siblings().eq(0).html();
   		var tenphong = $(caller).parent().siblings().eq(1).children().val();
-  		var status = $(caller).parent().siblings().eq(2).html()
+  		//var status = $(caller).parent().siblings().eq(2).html()
+  		var status = $(caller).parent().siblings().eq(2).html();
   		var giangayx = $(caller).parent().siblings().eq(3).children().val();
   		var giademx = $(caller).parent().siblings().eq(4).children().val();
   		
