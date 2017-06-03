@@ -58,12 +58,8 @@
                       	</div>
                       	<div class="col-md-6">
                       		<div class="row">
-	                      			<div class="col-md-6">
-		                      		<div align ="right">
-		                      			<input type="button" id="report" class="btn btn-default" onclick="" value="Tạo báo cáo"/>
-		                      		</div>
-                      			</div>
-	                      			<div class="col-md-6">
+	                      			
+	                      			<div class="col-md-12">
 		                      		<div align = "right">
 		                      			<input type="button" id="create" class="btn btn-primary" value="Thêm Phiếu chi" onclick="window.location='/uit/createPayment'"/>
 			                 		</div>
