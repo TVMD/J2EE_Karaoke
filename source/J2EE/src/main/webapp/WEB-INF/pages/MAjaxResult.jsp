@@ -20,7 +20,7 @@
 	 
 	 <c:if test="${dshang != null }">
 		<div class="form-group">
-        <label class="col-xs-3 control-label">Chọn đồ uống</label>
+        <label class="col-xs-3 control-label chondouonglb" >Chọn đồ uống</label>
         <div class="col-xs-5 selectContainer">
             <select class="form-control" name="dshang">
              	<option value="">Chọn đồ uống</option>
@@ -193,7 +193,7 @@
             </div>
            </c:if>
            
-          <c:if test="${dscthoadondv_toan != null }">
+    <c:if test="${dscthoadondv_toan != null }">
 	 	 <table class="table table-hover table-bordered">
                     <thead style="background-color: #bce8f1;">
                     <tr>
@@ -220,6 +220,62 @@
                     
                     </tbody>
                 </table>
+	 </c:if>
+	 
+	<c:if test="${dsctnhaphang != null }">
+	 	 <table class="table table-hover table-bordered">
+                    <thead style="background-color: #bce8f1;">
+                    <tr>
+                    	<th style="display:none;"/>
+                        <th>Hàng</th>
+                        <th>Số lượng</th>
+                        <th/>
+                        <th/>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${dsctnhaphang}" var="item">
+                        <tr>
+                        	<th style="display:none;"><c:out value="${item.ID}"/></th>
+                            <th class="hihi">
+                            	<input type="hidden" value="${item.IDHang }"/>
+                            	<div class="selecthang"></div>
+                            </th>
+                            <th><input value="${item.soLuong}"></th>
+                           <th id="editrow" >
+                            	 <a id="editphong" onclick="editctnhaphang(this);" class="btn btn-success btn-sm">
+      								<span class="glyphicon glyphicon-pencil"></span>
+   		  		  				</a> 
+                            </th>
+                           <th id="deleterow">
+                            	 <a onclick="deletectnhaphang(this);"  class="btn btn-warning btn-sm">
+      								<span class="glyphicon glyphicon-remove"></span>
+   		  		  				</a> 
+                            </th>      
+                                                   
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+	 </c:if>
+	 
+	 <c:if test="${tongtien != null }">
+	 	
+	 	 
+	 	 <jsp:include page="header.jsp"></jsp:include>
+<div class="col-md-12 col-sm-12 col-xs-12 well">
+    <div class="x_panel">
+        <div class="x_title">
+            <h3>Thông tin hóa đơn nhập</h3>
+            <ul class="nav navbar-right panel_toolbox"></ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <h3>Nhập hàng thành công. Tổng tiền : <c:out value="${tongtien}"/></h3>
+	 	 	<a href="/uit/">Kết thúc</a>
+        </div>
+    </div>
+</div>
 	 </c:if>
 </body>
 </html>

@@ -101,12 +101,12 @@ DROP TABLE IF EXISTS `ct_hdnhap`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ct_hdnhap` (
+  `ID` int(11) not null PRIMARY key AUTO_INCREMENT ,
   `IDHang` int(11) NOT NULL,
   `IDHoaDon` int(11) NOT NULL,
   `SoLuong` int(11) NOT NULL,
   `DonGiaNhap` int(11) NOT NULL,
-  `ThanhTien` int(11) NOT NULL,
-  PRIMARY KEY (`IDHang`,`IDHoaDon`)
+  `ThanhTien` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -116,7 +116,7 @@ CREATE TABLE `ct_hdnhap` (
 
 LOCK TABLES `ct_hdnhap` WRITE;
 /*!40000 ALTER TABLE `ct_hdnhap` DISABLE KEYS */;
-INSERT INTO `ct_hdnhap` VALUES (1,1,2,10000,20000),(1,2,100,10000,1000000),(1,3,10,10000,100000),(1,5,100,10000,1000000),(1,8,50,10000,500000),(2,2,14,5000,70000),(2,3,1,5000,5000),(2,5,100,5000,500000),(7,2,4,100000,400000),(7,3,100,10000,1000000),(7,5,100,3000,300000),(7,9,14,10000,140000),(8,2,100,2000,200000),(8,3,3,2000,6000),(8,5,100,4000,400000),(8,9,13,12000,156000),(10,2,100,10000,1000000),(10,3,6,10000,60000),(10,6,50,20000,1000000),(11,6,50,8000,400000),(11,13,100,12000,1200000),(12,6,20,15000,300000),(12,9,17,18000,306000),(13,11,100,5000,500000),(14,6,50,10000,500000),(14,8,20,15000,300000),(15,7,30,16000,480000),(15,9,16,13000,208000),(15,10,14,10000,140000),(16,7,20,12000,240000),(16,8,10,8000,80000),(16,12,20,12000,240000),(17,7,20,20000,400000),(17,9,20,18000,360000),(18,7,30,16000,480000),(19,8,20,3000,60000),(19,10,15,8000,120000);
+INSERT INTO `ct_hdnhap`(IDHang,IDHoaDon,SoLuong,DonGiaNhap,ThanhTien) VALUES (1,1,2,10000,20000),(1,2,100,10000,1000000),(1,3,10,10000,100000),(1,5,100,10000,1000000),(1,8,50,10000,500000),(2,2,14,5000,70000),(2,3,1,5000,5000),(2,5,100,5000,500000),(7,2,4,100000,400000),(7,3,100,10000,1000000),(7,5,100,3000,300000),(7,9,14,10000,140000),(8,2,100,2000,200000),(8,3,3,2000,6000),(8,5,100,4000,400000),(8,9,13,12000,156000),(10,2,100,10000,1000000),(10,3,6,10000,60000),(10,6,50,20000,1000000),(11,6,50,8000,400000),(11,13,100,12000,1200000),(12,6,20,15000,300000),(12,9,17,18000,306000),(13,11,100,5000,500000),(14,6,50,10000,500000),(14,8,20,15000,300000),(15,7,30,16000,480000),(15,9,16,13000,208000),(15,10,14,10000,140000),(16,7,20,12000,240000),(16,8,10,8000,80000),(16,12,20,12000,240000),(17,7,20,20000,400000),(17,9,20,18000,360000),(18,7,30,16000,480000),(19,8,20,3000,60000),(19,10,15,8000,120000);
 /*!40000 ALTER TABLE `ct_hdnhap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -658,3 +658,53 @@ begin
     where a.ID_HoaDonDV=idhoadondv;
 
 end$$
+
+--------------------------------------------------------- hoadonnhap---------------------------------
+USE `qlkara`;
+DROP procedure IF EXISTS `createHoaDonNhap`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `createHoaDonNhap`()
+begin
+
+	insert into hoadonnhap(NgayNhap,TongTien) values(now(),0);
+	
+    select max(ID) from hoadonnhap;
+end$$
+--------------
+USE `qlkara`;
+DROP procedure IF EXISTS `tinhtienhdnhap`;
+DELIMITER $$
+USE `qlkara`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `tinhtienhdnhap`(in idhoadonxx int)
+begin
+
+	delete from xxx;
+	update ct_hdnhap set DonGiaNhap = (select DonGiaNhap from hang where ID=IDHang) where DonGiaNhap=0;
+	update ct_hdnhap set ThanhTien = SoLuong*DonGiaNhap;
+    
+    insert into xxx (ID,IDHoaDon,IDHang,SoLuong,DonGiaNhap,ThanhTien)
+   select ID,IDHoaDon,IDHang,SoLuong,DonGiaNhap,ThanhTien from ct_hdnhap where IDHoaDon=idhoadonxx;
+   
+   set @m = 0;
+  
+  oop: while (1=1) do
+    set @m = ifnull((select min(IDHang) from xxx where IDHang > @m),0);
+    if @m= 0 then
+      LEAVE oop;
+	end if;
+    
+    
+    update hang set SLTon = SLTon + (select SoLuong from xxx where IDHang=@m and IDHoaDon=idhoadon);
+    update hoadonnhap set TongTien = TongTien + (select ThanhTien from xxx where IDHang=@m and IDHoaDon=idhoadon);
+   end while; 
+  
+
+	select TongTien from hoadonnhap where ID = idhoadonxx;
+end$$
+----------------------------sang--------------
+CREATE TABLE `session` (
+  `sessionkey` varchar(50) NOT NULL,
+  `madangnhap` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`sessionkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
