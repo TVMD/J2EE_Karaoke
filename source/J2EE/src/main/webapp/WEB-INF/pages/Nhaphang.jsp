@@ -58,7 +58,7 @@
                 <div class="form-group col-sm-3 col-md-3">
                     <label class="control-label col-md-5 col-sm-5 col-xs-5">Số lượng</label>
                     <div class="col-md-7 col-sm-7 col-xs-7">
-                        <input id="soluong" type="text" class="form-control" />
+                        <input id="soluong" type="text" class="form-control"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
                     </div>
                 </div>
                 
