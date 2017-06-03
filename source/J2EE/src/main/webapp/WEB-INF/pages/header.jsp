@@ -42,6 +42,7 @@
        </li>
       <li><a href="bcdoanhthux">Biểu đồ thu/chi</a></li>
       <li><a href="nhaphang">Nhập hàng</a></li>
+      <li><a href="user">Quản lý người dùng</a></li>
       <li align="right"><a href="logout">Log out</a></li>
     </ul>
   </div>
